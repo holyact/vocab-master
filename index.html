@@ -6,26 +6,17 @@
 <title>중학 영단어 마스터 | 고등학생용</title>
 <style>
   :root {
-    --bg: #f5f4ef;
-    --surface: #ffffff;
-    --surface2: #eeeae0;
-    --text: #1a1a1a;
-    --text2: #555;
-    --text3: #999;
-    --accent: #3d6b52;
-    --accent-light: #e6f2ec;
-    --accent2: #b84c28;
-    --accent2-light: #fbeee9;
-    --border: rgba(0,0,0,0.09);
-    --radius: 16px;
+    --bg: #f5f4ef; --surface: #ffffff; --surface2: #eeeae0;
+    --text: #1a1a1a; --text2: #555; --text3: #999;
+    --accent: #3d6b52; --accent-light: #e6f2ec;
+    --accent2: #b84c28; --accent2-light: #fbeee9;
+    --border: rgba(0,0,0,0.09); --radius: 16px;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: 'Segoe UI', -apple-system, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
-
   .header { background: var(--accent); color: #fff; padding: 18px 20px 14px; text-align: center; }
   .header h1 { font-size: 20px; font-weight: 700; }
   .header p { font-size: 12px; opacity: 0.8; margin-top: 3px; }
-
   .stats { display: flex; background: var(--surface); border-bottom: 1px solid var(--border); }
   .stat { flex: 1; text-align: center; padding: 10px 4px; border-right: 1px solid var(--border); }
   .stat:last-child { border-right: none; }
@@ -33,23 +24,16 @@
   .stat-num.red { color: var(--accent2); }
   .stat-num.dark { color: var(--text); }
   .stat-label { font-size: 10px; color: var(--text3); margin-top: 1px; }
-
   .tabs { display: flex; background: var(--surface); border-bottom: 1px solid var(--border); }
   .tab { flex: 1; padding: 10px 2px; border: none; background: none; font-size: 12px; font-weight: 600; color: var(--text3); cursor: pointer; border-bottom: 3px solid transparent; }
   .tab.active { color: var(--accent); border-bottom-color: var(--accent); }
-
   .category-bar { padding: 10px 16px; background: var(--surface); display: flex; gap: 7px; overflow-x: auto; scrollbar-width: none; border-bottom: 1px solid var(--border); }
   .category-bar::-webkit-scrollbar { display: none; }
   .cat-btn { white-space: nowrap; padding: 5px 12px; border-radius: 20px; border: 1.5px solid var(--border); background: var(--surface); font-size: 11px; font-weight: 600; color: var(--text2); cursor: pointer; transition: all 0.15s; }
   .cat-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
-
   .content { padding: 16px; max-width: 600px; margin: 0 auto; }
-
-  /* Progress */
   .progress-bar { height: 3px; background: var(--surface2); border-radius: 2px; margin-bottom: 14px; }
   .progress-fill { height: 100%; background: var(--accent); border-radius: 2px; transition: width 0.4s; }
-
-  /* Flash card */
   .flashcard-wrap { perspective: 1000px; height: 220px; margin-bottom: 16px; }
   .flashcard { width: 100%; height: 100%; position: relative; transform-style: preserve-3d; transition: transform 0.45s; cursor: pointer; }
   .flashcard.flipped { transform: rotateY(180deg); }
@@ -62,20 +46,16 @@
   .card-example { font-size: 13px; color: var(--text2); margin-top: 10px; text-align: center; line-height: 1.6; }
   .card-example em { font-style: normal; font-weight: 700; color: var(--accent); }
   .flip-hint { font-size: 11px; color: var(--text3); text-align: center; margin-bottom: 10px; }
-
   .card-nav { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
   .nav-btn { width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid var(--border); background: var(--surface); font-size: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 1px 6px rgba(0,0,0,0.06); transition: all 0.15s; }
   .nav-btn:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
   .card-counter { font-size: 13px; color: var(--text2); font-weight: 600; }
-
   .know-btns { display: flex; gap: 10px; }
   .know-btn { flex: 1; padding: 13px; border-radius: 12px; border: none; font-size: 14px; font-weight: 700; cursor: pointer; transition: all 0.15s; }
   .know-yes { background: var(--accent-light); color: var(--accent); }
   .know-no { background: var(--accent2-light); color: var(--accent2); }
   .know-yes:hover { background: var(--accent); color: #fff; }
   .know-no:hover { background: var(--accent2); color: #fff; }
-
-  /* Quiz */
   .quiz-question { background: var(--surface); border-radius: var(--radius); padding: 24px 20px; text-align: center; box-shadow: 0 2px 12px rgba(0,0,0,0.07); border: 1px solid var(--border); margin-bottom: 16px; }
   .quiz-q-label { font-size: 11px; color: var(--text3); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
   .quiz-q-word { font-size: 30px; font-weight: 700; }
@@ -91,8 +71,6 @@
   .quiz-feedback.bad { background: var(--accent2-light); color: var(--accent2); }
   .next-btn { width: 100%; padding: 14px; border-radius: 12px; border: none; background: var(--accent); color: #fff; font-size: 15px; font-weight: 700; cursor: pointer; display: none; }
   .next-btn.show { display: block; }
-
-  /* Fill */
   .fill-card { background: var(--surface); border-radius: var(--radius); padding: 24px 20px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); border: 1px solid var(--border); margin-bottom: 16px; }
   .fill-meaning { font-size: 20px; font-weight: 700; margin-bottom: 6px; }
   .fill-sentence { font-size: 15px; color: var(--text2); line-height: 1.8; margin-bottom: 18px; padding: 12px 14px; background: var(--bg); border-radius: 10px; }
@@ -108,9 +86,6 @@
   .fill-result.ok { background: var(--accent-light); color: var(--accent); }
   .fill-result.bad { background: var(--accent2-light); color: var(--accent2); }
   .fill-next { width: 100%; margin-top: 10px; padding: 13px; border-radius: 12px; border: none; background: var(--accent); color: #fff; font-size: 14px; font-weight: 700; cursor: pointer; display: none; }
-  .fill-next.show { display: block; }
-
-  /* Word List */
   .list-search { width: 100%; padding: 11px 14px; border-radius: 12px; border: 1.5px solid var(--border); font-size: 14px; outline: none; margin-bottom: 14px; background: var(--surface); color: var(--text); }
   .list-search:focus { border-color: var(--accent); }
   .word-list { display: flex; flex-direction: column; gap: 6px; }
@@ -131,77 +106,584 @@
   <h1>📚 중학 영단어 마스터</h1>
   <p>고등학생 필수 어휘 500개 — 플래시카드 · 퀴즈 · 빈칸 채우기</p>
 </div>
-
 <div class="stats">
   <div class="stat"><div class="stat-num dark" id="st-total">500</div><div class="stat-label">전체</div></div>
   <div class="stat"><div class="stat-num" id="st-known">0</div><div class="stat-label">알아요 ✓</div></div>
   <div class="stat"><div class="stat-num red" id="st-unknown">500</div><div class="stat-label">학습 중</div></div>
   <div class="stat"><div class="stat-num" id="st-score">0%</div><div class="stat-label">퀴즈 점수</div></div>
 </div>
-
 <div class="tabs">
   <button class="tab active" onclick="switchMode('flash')">🃏 플래시카드</button>
   <button class="tab" onclick="switchMode('quiz')">✏️ 퀴즈</button>
   <button class="tab" onclick="switchMode('fill')">🔤 빈칸</button>
   <button class="tab" onclick="switchMode('list')">📋 목록</button>
 </div>
-
 <div class="category-bar" id="cat-bar"></div>
 <div class="content" id="main-content"></div>
-
-<script src="words.js"></script>
 <script>
-const CATS = ['전체','일상생활','감정/성격','학문/지식','사회/문화','자연/과학'];
-let mode = 'flash';
-let currentCat = '전체';
-let filteredWords = [];
-let currentIdx = 0;
-let known = new Set();
-let quizScore = { c: 0, t: 0 };
-let quizAnswered = false;
+const WORDS = [
+// ===== 일상생활 (100개) =====
+{en:'abandon',ko:'버리다, 포기하다',phonetic:'/əˈbændən/',cat:'일상생활',example:'He had to abandon his car in the snow.'},
+{en:'absence',ko:'부재, 결석',phonetic:'/ˈæbsəns/',cat:'일상생활',example:'Her absence was noticed by everyone.'},
+{en:'accurate',ko:'정확한',phonetic:'/ˈækjərət/',cat:'일상생활',example:'The weather forecast was accurate.'},
+{en:'achieve',ko:'성취하다',phonetic:'/əˈtʃiːv/',cat:'일상생활',example:'You can achieve anything you set your mind to.'},
+{en:'acknowledge',ko:'인정하다',phonetic:'/əkˈnɒlɪdʒ/',cat:'일상생활',example:'She acknowledged her mistake.'},
+{en:'acquire',ko:'얻다, 습득하다',phonetic:'/əˈkwaɪər/',cat:'일상생활',example:'He acquired new skills at work.'},
+{en:'adapt',ko:'적응하다',phonetic:'/əˈdæpt/',cat:'일상생활',example:'Animals adapt to their environment.'},
+{en:'adequate',ko:'적절한, 충분한',phonetic:'/ˈædɪkwət/',cat:'일상생활',example:'The food supply was not adequate.'},
+{en:'admire',ko:'감탄하다, 존경하다',phonetic:'/ədˈmaɪər/',cat:'일상생활',example:'I admire her courage.'},
+{en:'advance',ko:'나아가다, 발전',phonetic:'/ədˈvæns/',cat:'일상생활',example:'Technology continues to advance.'},
+{en:'affect',ko:'영향을 미치다',phonetic:'/əˈfɛkt/',cat:'일상생활',example:'The weather affects our mood.'},
+{en:'afford',ko:'감당하다, 여유가 있다',phonetic:'/əˈfɔːrd/',cat:'일상생활',example:'I cannot afford a new car.'},
+{en:'alarm',ko:'경보, 놀라게 하다',phonetic:'/əˈlɑːrm/',cat:'일상생활',example:'The fire alarm went off suddenly.'},
+{en:'alter',ko:'바꾸다, 변경하다',phonetic:'/ˈɔːltər/',cat:'일상생활',example:'She altered her plans.'},
+{en:'ancient',ko:'고대의',phonetic:'/ˈeɪnʃənt/',cat:'일상생활',example:'They discovered an ancient temple.'},
+{en:'annoy',ko:'짜증나게 하다',phonetic:'/əˈnɔɪ/',cat:'일상생활',example:'The noise annoyed the neighbors.'},
+{en:'apologize',ko:'사과하다',phonetic:'/əˈpɒlədʒaɪz/',cat:'일상생활',example:'He apologized for being late.'},
+{en:'appear',ko:'나타나다, ~처럼 보이다',phonetic:'/əˈpɪər/',cat:'일상생활',example:'A star appeared in the sky.'},
+{en:'apply',ko:'지원하다, 적용하다',phonetic:'/əˈplaɪ/',cat:'일상생활',example:'She applied for the job.'},
+{en:'approach',ko:'접근하다, 방법',phonetic:'/əˈproʊtʃ/',cat:'일상생활',example:'He approached the problem carefully.'},
+{en:'approve',ko:'승인하다',phonetic:'/əˈpruːv/',cat:'일상생활',example:'The teacher approved the plan.'},
+{en:'arrange',ko:'준비하다, 정리하다',phonetic:'/əˈreɪndʒ/',cat:'일상생활',example:'She arranged the flowers.'},
+{en:'arrest',ko:'체포하다',phonetic:'/əˈrɛst/',cat:'일상생활',example:'The police arrested the thief.'},
+{en:'assist',ko:'돕다, 지원하다',phonetic:'/əˈsɪst/',cat:'일상생활',example:'Can you assist me with this?'},
+{en:'assume',ko:'추정하다, 떠맡다',phonetic:'/əˈsjuːm/',cat:'일상생활',example:'Do not assume the worst.'},
+{en:'attach',ko:'붙이다, 첨부하다',phonetic:'/əˈtætʃ/',cat:'일상생활',example:'Please attach the file to the email.'},
+{en:'attempt',ko:'시도하다',phonetic:'/əˈtɛmpt/',cat:'일상생활',example:'She attempted to climb the mountain.'},
+{en:'attract',ko:'끌어당기다',phonetic:'/əˈtrækt/',cat:'일상생활',example:'Flowers attract bees.'},
+{en:'available',ko:'이용 가능한',phonetic:'/əˈveɪləbl/',cat:'일상생활',example:'The tickets are still available.'},
+{en:'avoid',ko:'피하다',phonetic:'/əˈvɔɪd/',cat:'일상생활',example:'Try to avoid junk food.'},
+{en:'aware',ko:'알고 있는, 인식하는',phonetic:'/əˈwɛər/',cat:'일상생활',example:'Are you aware of the problem?'},
+{en:'barely',ko:'겨우, 거의 ~않다',phonetic:'/ˈbɛərli/',cat:'일상생활',example:'He barely passed the test.'},
+{en:'belong',ko:'속하다',phonetic:'/bɪˈlɒŋ/',cat:'일상생활',example:'This bag belongs to me.'},
+{en:'benefit',ko:'이익, 혜택',phonetic:'/ˈbɛnɪfɪt/',cat:'일상생활',example:'Exercise has many health benefits.'},
+{en:'blame',ko:'비난하다, 탓하다',phonetic:'/bleɪm/',cat:'일상생활',example:'Don\'t blame others for your mistakes.'},
+{en:'borrow',ko:'빌리다',phonetic:'/ˈbɒroʊ/',cat:'일상생활',example:'Can I borrow your pen?'},
+{en:'budget',ko:'예산',phonetic:'/ˈbʌdʒɪt/',cat:'일상생활',example:'We must stick to the budget.'},
+{en:'burden',ko:'짐, 부담',phonetic:'/ˈbɜːrdn/',cat:'일상생활',example:'The debt was a heavy burden.'},
+{en:'cancel',ko:'취소하다',phonetic:'/ˈkænsəl/',cat:'일상생활',example:'The concert was cancelled due to rain.'},
+{en:'capable',ko:'유능한, ~할 수 있는',phonetic:'/ˈkeɪpəbl/',cat:'일상생활',example:'She is capable of great things.'},
+{en:'capture',ko:'포착하다, 잡다',phonetic:'/ˈkæptʃər/',cat:'일상생활',example:'He captured a beautiful photo.'},
+{en:'cargo',ko:'화물',phonetic:'/ˈkɑːrɡoʊ/',cat:'일상생활',example:'The ship carried heavy cargo.'},
+{en:'caution',ko:'주의, 경고',phonetic:'/ˈkɔːʃn/',cat:'일상생활',example:'Proceed with caution.'},
+{en:'ceremony',ko:'의식, 행사',phonetic:'/ˈsɛrɪmoʊni/',cat:'일상생활',example:'The graduation ceremony was beautiful.'},
+{en:'challenge',ko:'도전, 어려운 과제',phonetic:'/ˈtʃælɪndʒ/',cat:'일상생활',example:'Learning a language is a challenge.'},
+{en:'claim',ko:'주장하다, 청구하다',phonetic:'/kleɪm/',cat:'일상생활',example:'She claimed she was innocent.'},
+{en:'clue',ko:'단서',phonetic:'/kluː/',cat:'일상생활',example:'The detective found a clue.'},
+{en:'collapse',ko:'붕괴하다, 무너지다',phonetic:'/kəˈlæps/',cat:'일상생활',example:'The bridge collapsed in the storm.'},
+{en:'combine',ko:'결합하다',phonetic:'/kəmˈbaɪn/',cat:'일상생활',example:'Combine the ingredients well.'},
+{en:'commit',ko:'저지르다, 헌신하다',phonetic:'/kəˈmɪt/',cat:'일상생활',example:'He committed himself to the project.'},
+{en:'complain',ko:'불평하다',phonetic:'/kəmˈpleɪn/',cat:'일상생활',example:'She always complains about the cold.'},
+{en:'complete',ko:'완료하다, 완전한',phonetic:'/kəmˈpliːt/',cat:'일상생활',example:'Please complete the form.'},
+{en:'concern',ko:'걱정, 관련되다',phonetic:'/kənˈsɜːrn/',cat:'일상생활',example:'Her health is a major concern.'},
+{en:'confirm',ko:'확인하다',phonetic:'/kənˈfɜːrm/',cat:'일상생활',example:'Please confirm your reservation.'},
+{en:'connect',ko:'연결하다',phonetic:'/kəˈnɛkt/',cat:'일상생활',example:'Connect the cable to the computer.'},
+{en:'consider',ko:'고려하다',phonetic:'/kənˈsɪdər/',cat:'일상생활',example:'Consider all the options first.'},
+{en:'contain',ko:'포함하다',phonetic:'/kənˈteɪn/',cat:'일상생활',example:'This box contains books.'},
+{en:'convenient',ko:'편리한',phonetic:'/kənˈviːniənt/',cat:'일상생활',example:'The location is very convenient.'},
+{en:'convince',ko:'설득하다',phonetic:'/kənˈvɪns/',cat:'일상생활',example:'He convinced her to stay.'},
+{en:'cooperate',ko:'협력하다',phonetic:'/koʊˈɒpəreɪt/',cat:'일상생활',example:'We must cooperate to succeed.'},
+{en:'crucial',ko:'중요한, 결정적인',phonetic:'/ˈkruːʃl/',cat:'일상생활',example:'This step is crucial.'},
+{en:'curious',ko:'호기심 있는',phonetic:'/ˈkjʊəriəs/',cat:'일상생활',example:'She is curious about science.'},
+{en:'current',ko:'현재의, 흐름',phonetic:'/ˈkɜːrənt/',cat:'일상생활',example:'What is the current situation?'},
+{en:'damage',ko:'손상, 해를 끼치다',phonetic:'/ˈdæmɪdʒ/',cat:'일상생활',example:'The storm caused serious damage.'},
+{en:'deal',ko:'다루다, 거래',phonetic:'/diːl/',cat:'일상생활',example:'How do you deal with stress?'},
+{en:'debate',ko:'토론하다, 논쟁',phonetic:'/dɪˈbeɪt/',cat:'일상생활',example:'They debated the issue for hours.'},
+{en:'decline',ko:'거절하다, 감소하다',phonetic:'/dɪˈklaɪn/',cat:'일상생활',example:'She declined the offer politely.'},
+{en:'dedicate',ko:'헌신하다, 바치다',phonetic:'/ˈdɛdɪkeɪt/',cat:'일상생활',example:'He dedicated his life to teaching.'},
+{en:'defeat',ko:'패배시키다, 패배',phonetic:'/dɪˈfiːt/',cat:'일상생활',example:'Our team was defeated in the final.'},
+{en:'delay',ko:'미루다, 지연',phonetic:'/dɪˈleɪ/',cat:'일상생활',example:'The train was delayed by an hour.'},
+{en:'deliver',ko:'배달하다, 전달하다',phonetic:'/dɪˈlɪvər/',cat:'일상생활',example:'The package was delivered on time.'},
+{en:'demand',ko:'요구하다, 수요',phonetic:'/dɪˈmɑːnd/',cat:'일상생활',example:'There is high demand for nurses.'},
+{en:'deny',ko:'부정하다, 거부하다',phonetic:'/dɪˈnaɪ/',cat:'일상생활',example:'He denied the accusation.'},
+{en:'depend',ko:'의존하다',phonetic:'/dɪˈpɛnd/',cat:'일상생활',example:'Success depends on hard work.'},
+{en:'describe',ko:'묘사하다, 설명하다',phonetic:'/dɪˈskraɪb/',cat:'일상생활',example:'Describe what you saw.'},
+{en:'deserve',ko:'~을 받을 자격이 있다',phonetic:'/dɪˈzɜːrv/',cat:'일상생활',example:'You deserve a rest.'},
+{en:'determine',ko:'결정하다',phonetic:'/dɪˈtɜːrmɪn/',cat:'일상생활',example:'She determined to work harder.'},
+{en:'develop',ko:'발전시키다',phonetic:'/dɪˈvɛləp/',cat:'일상생활',example:'The city developed rapidly.'},
+{en:'disappear',ko:'사라지다',phonetic:'/ˌdɪsəˈpɪər/',cat:'일상생활',example:'The fog disappeared by noon.'},
+{en:'discipline',ko:'규율, 훈련',phonetic:'/ˈdɪsɪplɪn/',cat:'일상생활',example:'Discipline is key to success.'},
+{en:'dismiss',ko:'해고하다, 무시하다',phonetic:'/dɪˈsmɪs/',cat:'일상생활',example:'The teacher dismissed the class early.'},
+{en:'display',ko:'전시하다, 나타내다',phonetic:'/dɪˈspleɪ/',cat:'일상생활',example:'The museum displays ancient art.'},
+{en:'distinct',ko:'뚜렷한, 독특한',phonetic:'/dɪˈstɪŋkt/',cat:'일상생활',example:'Each culture has a distinct identity.'},
+{en:'disturb',ko:'방해하다',phonetic:'/dɪˈstɜːrb/',cat:'일상생활',example:'Please do not disturb me.'},
+{en:'earn',ko:'벌다, 획득하다',phonetic:'/ɜːrn/',cat:'일상생활',example:'He earns a good salary.'},
+{en:'effective',ko:'효과적인',phonetic:'/ɪˈfɛktɪv/',cat:'일상생활',example:'This medicine is very effective.'},
+{en:'efficient',ko:'효율적인',phonetic:'/ɪˈfɪʃnt/',cat:'일상생활',example:'She is an efficient worker.'},
+{en:'emerge',ko:'나타나다, 드러나다',phonetic:'/ɪˈmɜːrdʒ/',cat:'일상생활',example:'A new leader emerged from the group.'},
+{en:'employ',ko:'고용하다',phonetic:'/ɪmˈplɔɪ/',cat:'일상생활',example:'The company employs 500 people.'},
+{en:'encourage',ko:'격려하다',phonetic:'/ɪnˈkɜːrɪdʒ/',cat:'일상생활',example:'He encouraged me to try again.'},
+{en:'enormous',ko:'거대한',phonetic:'/ɪˈnɔːrməs/',cat:'일상생활',example:'The building was enormous.'},
+{en:'entire',ko:'전체의',phonetic:'/ɪnˈtaɪər/',cat:'일상생활',example:'I spent the entire day studying.'},
+{en:'escape',ko:'탈출하다',phonetic:'/ɪˈskeɪp/',cat:'일상생활',example:'The bird escaped from the cage.'},
+{en:'estimate',ko:'추정하다, 견적',phonetic:'/ˈɛstɪmeɪt/',cat:'일상생활',example:'Estimate the cost of the project.'},
+{en:'eventually',ko:'결국, 마침내',phonetic:'/ɪˈvɛntʃuəli/',cat:'일상생활',example:'She eventually found the answer.'},
+{en:'evidence',ko:'증거',phonetic:'/ˈɛvɪdəns/',cat:'일상생활',example:'There is no evidence of wrongdoing.'},
+{en:'examine',ko:'검사하다, 시험하다',phonetic:'/ɪɡˈzæmɪn/',cat:'일상생활',example:'The doctor examined the patient.'},
+{en:'exception',ko:'예외',phonetic:'/ɪkˈsɛpʃn/',cat:'일상생활',example:'There is no exception to the rule.'},
+{en:'exist',ko:'존재하다',phonetic:'/ɪɡˈzɪst/',cat:'일상생활',example:'Do aliens exist?'},
+{en:'expand',ko:'확장하다',phonetic:'/ɪkˈspænd/',cat:'일상생활',example:'The company plans to expand.'},
+{en:'expect',ko:'기대하다, 예상하다',phonetic:'/ɪkˈspɛkt/',cat:'일상생활',example:'I expect you to do your best.'},
+{en:'experience',ko:'경험, 경험하다',phonetic:'/ɪkˈspɪəriəns/',cat:'일상생활',example:'This experience changed my life.'},
 
-function gw() { return currentCat === '전체' ? WORDS : WORDS.filter(w => w.cat === currentCat); }
+// ===== 감정/성격 (100개) =====
+{en:'aggressive',ko:'공격적인',phonetic:'/əˈɡrɛsɪv/',cat:'감정/성격',example:'His aggressive behavior scared everyone.'},
+{en:'ambitious',ko:'야망 있는',phonetic:'/æmˈbɪʃəs/',cat:'감정/성격',example:'She is ambitious about her career.'},
+{en:'anxious',ko:'불안한, 간절히 바라는',phonetic:'/ˈæŋkʃəs/',cat:'감정/성격',example:'He felt anxious before the speech.'},
+{en:'arrogant',ko:'오만한',phonetic:'/ˈærəɡənt/',cat:'감정/성격',example:'His arrogant attitude upset others.'},
+{en:'ashamed',ko:'부끄러운',phonetic:'/əˈʃeɪmd/',cat:'감정/성격',example:'She was ashamed of her behavior.'},
+{en:'bitter',ko:'쓴, 분한',phonetic:'/ˈbɪtər/',cat:'감정/성격',example:'He felt bitter about losing.'},
+{en:'bold',ko:'대담한',phonetic:'/boʊld/',cat:'감정/성격',example:'She made a bold decision.'},
+{en:'calm',ko:'침착한, 고요한',phonetic:'/kɑːm/',cat:'감정/성격',example:'Stay calm in an emergency.'},
+{en:'cautious',ko:'조심스러운',phonetic:'/ˈkɔːʃəs/',cat:'감정/성격',example:'He is cautious about new ideas.'},
+{en:'cheerful',ko:'쾌활한',phonetic:'/ˈtʃɪərfl/',cat:'감정/성격',example:'She always seems cheerful.'},
+{en:'compassion',ko:'연민, 동정심',phonetic:'/kəmˈpæʃn/',cat:'감정/성격',example:'She showed great compassion.'},
+{en:'confident',ko:'자신감 있는',phonetic:'/ˈkɒnfɪdənt/',cat:'감정/성격',example:'He spoke in a confident voice.'},
+{en:'confused',ko:'혼란스러운',phonetic:'/kənˈfjuːzd/',cat:'감정/성격',example:'I was confused by the instructions.'},
+{en:'content',ko:'만족하는',phonetic:'/kənˈtɛnt/',cat:'감정/성격',example:'She is content with her life.'},
+{en:'courageous',ko:'용감한',phonetic:'/kəˈreɪdʒəs/',cat:'감정/성격',example:'The courageous soldier saved many lives.'},
+{en:'creative',ko:'창의적인',phonetic:'/kriˈeɪtɪv/',cat:'감정/성격',example:'She is a very creative designer.'},
+{en:'cruel',ko:'잔인한',phonetic:'/kruːəl/',cat:'감정/성격',example:'It was a cruel thing to say.'},
+{en:'cynical',ko:'냉소적인',phonetic:'/ˈsɪnɪkl/',cat:'감정/성격',example:'He has a cynical view of the world.'},
+{en:'dedicated',ko:'헌신적인',phonetic:'/ˈdɛdɪkeɪtɪd/',cat:'감정/성격',example:'She is dedicated to her students.'},
+{en:'depressed',ko:'우울한',phonetic:'/dɪˈprɛst/',cat:'감정/성격',example:'He felt depressed all week.'},
+{en:'determined',ko:'단호한',phonetic:'/dɪˈtɜːrmɪnd/',cat:'감정/성격',example:'She was determined to succeed.'},
+{en:'devoted',ko:'헌신적인, 충실한',phonetic:'/dɪˈvoʊtɪd/',cat:'감정/성격',example:'He is devoted to his family.'},
+{en:'disappointed',ko:'실망한',phonetic:'/ˌdɪsəˈpɔɪntɪd/',cat:'감정/성격',example:'She was disappointed with the result.'},
+{en:'disgust',ko:'혐오, 역겨워하다',phonetic:'/dɪsˈɡʌst/',cat:'감정/성격',example:'She felt disgust at the sight.'},
+{en:'distress',ko:'고통, 괴롭히다',phonetic:'/dɪˈstrɛs/',cat:'감정/성격',example:'He was in great distress.'},
+{en:'doubtful',ko:'의심스러운',phonetic:'/ˈdaʊtfl/',cat:'감정/성격',example:'She was doubtful about his promise.'},
+{en:'eager',ko:'열망하는',phonetic:'/ˈiːɡər/',cat:'감정/성격',example:'The students were eager to learn.'},
+{en:'embarrass',ko:'당황하게 하다',phonetic:'/ɪmˈbærəs/',cat:'감정/성격',example:'He embarrassed me in front of everyone.'},
+{en:'emotional',ko:'감정적인',phonetic:'/ɪˈmoʊʃənl/',cat:'감정/성격',example:'She gets emotional at sad movies.'},
+{en:'envious',ko:'부러워하는',phonetic:'/ˈɛnviəs/',cat:'감정/성격',example:'He was envious of her talent.'},
+{en:'enthusiastic',ko:'열정적인',phonetic:'/ɪnˌθjuːziˈæstɪk/',cat:'감정/성격',example:'She is enthusiastic about dancing.'},
+{en:'exhausted',ko:'기진맥진한',phonetic:'/ɪɡˈzɔːstɪd/',cat:'감정/성격',example:'He was exhausted after the race.'},
+{en:'faithful',ko:'충실한',phonetic:'/ˈfeɪθfl/',cat:'감정/성격',example:'He is a faithful friend.'},
+{en:'flexible',ko:'유연한',phonetic:'/ˈflɛksɪbl/',cat:'감정/성격',example:'Try to be more flexible.'},
+{en:'fortunate',ko:'운이 좋은',phonetic:'/ˈfɔːrtʃənət/',cat:'감정/성격',example:'She was fortunate to survive.'},
+{en:'fragile',ko:'깨지기 쉬운, 연약한',phonetic:'/ˈfrædʒaɪl/',cat:'감정/성격',example:'The elderly woman seemed fragile.'},
+{en:'frustrate',ko:'좌절시키다',phonetic:'/ˈfrʌstreɪt/',cat:'감정/성격',example:'The delay frustrated the passengers.'},
+{en:'generous',ko:'너그러운',phonetic:'/ˈdʒɛnərəs/',cat:'감정/성격',example:'She is generous with her time.'},
+{en:'grateful',ko:'감사하는',phonetic:'/ˈɡreɪtfl/',cat:'감정/성격',example:'I am grateful for your help.'},
+{en:'greedy',ko:'욕심 많은',phonetic:'/ˈɡriːdi/',cat:'감정/성격',example:'The greedy merchant raised prices.'},
+{en:'guilty',ko:'죄책감을 느끼는',phonetic:'/ˈɡɪlti/',cat:'감정/성격',example:'She felt guilty for lying.'},
+{en:'gloomy',ko:'우울한, 침침한',phonetic:'/ˈɡluːmi/',cat:'감정/성격',example:'His gloomy expression worried me.'},
+{en:'humble',ko:'겸손한',phonetic:'/ˈhʌmbl/',cat:'감정/성격',example:'Despite his fame, he is humble.'},
+{en:'hysterical',ko:'히스테리적인, 몹시 흥분한',phonetic:'/hɪˈstɛrɪkl/',cat:'감정/성격',example:'She became hysterical with laughter.'},
+{en:'ignorant',ko:'무지한',phonetic:'/ˈɪɡnərənt/',cat:'감정/성격',example:'He was ignorant of the facts.'},
+{en:'impulsive',ko:'충동적인',phonetic:'/ɪmˈpʌlsɪv/',cat:'감정/성격',example:'His impulsive decisions caused problems.'},
+{en:'indifferent',ko:'무관심한',phonetic:'/ɪnˈdɪfrənt/',cat:'감정/성격',example:'She seemed indifferent to the news.'},
+{en:'indignant',ko:'분개한',phonetic:'/ɪnˈdɪɡnənt/',cat:'감정/성격',example:'He was indignant at the false accusation.'},
+{en:'inferior',ko:'열등한',phonetic:'/ɪnˈfɪəriər/',cat:'감정/성격',example:'He felt inferior to his classmates.'},
+{en:'innocent',ko:'결백한, 순진한',phonetic:'/ˈɪnəsnt/',cat:'감정/성격',example:'She was proved innocent.'},
+{en:'insecure',ko:'불안정한, 자신 없는',phonetic:'/ˌɪnsɪˈkjʊər/',cat:'감정/성격',example:'He feels insecure about his looks.'},
+{en:'inspired',ko:'영감을 받은',phonetic:'/ɪnˈspaɪərd/',cat:'감정/성격',example:'She felt inspired by the speech.'},
+{en:'intense',ko:'강렬한',phonetic:'/ɪnˈtɛns/',cat:'감정/성격',example:'He felt intense pain.'},
+{en:'jealous',ko:'질투하는',phonetic:'/ˈdʒɛləs/',cat:'감정/성격',example:'He was jealous of his friend\'s success.'},
+{en:'joyful',ko:'기쁜',phonetic:'/ˈdʒɔɪfl/',cat:'감정/성격',example:'The children were joyful at Christmas.'},
+{en:'loyal',ko:'충성스러운',phonetic:'/ˈlɔɪəl/',cat:'감정/성격',example:'She is loyal to her friends.'},
+{en:'melancholy',ko:'우울함, 슬픔',phonetic:'/ˈmɛlənkɒli/',cat:'감정/성격',example:'A sense of melancholy filled the room.'},
+{en:'miserable',ko:'비참한',phonetic:'/ˈmɪzərəbl/',cat:'감정/성격',example:'She felt miserable in the cold rain.'},
+{en:'modest',ko:'겸손한',phonetic:'/ˈmɒdɪst/',cat:'감정/성격',example:'He is modest about his achievements.'},
+{en:'motivated',ko:'의욕적인',phonetic:'/ˈmoʊtɪveɪtɪd/',cat:'감정/성격',example:'She is highly motivated to learn.'},
+{en:'nervous',ko:'긴장한',phonetic:'/ˈnɜːrvəs/',cat:'감정/성격',example:'He was nervous before the interview.'},
+{en:'nostalgic',ko:'향수를 느끼는',phonetic:'/nɒˈstældʒɪk/',cat:'감정/성격',example:'The old song made her nostalgic.'},
+{en:'obedient',ko:'순종하는',phonetic:'/əˈbiːdiənt/',cat:'감정/성격',example:'The obedient dog followed commands.'},
+{en:'optimistic',ko:'낙관적인',phonetic:'/ˌɒptɪˈmɪstɪk/',cat:'감정/성격',example:'Stay optimistic even in hard times.'},
+{en:'outgoing',ko:'외향적인',phonetic:'/ˈaʊtɡoʊɪŋ/',cat:'감정/성격',example:'She is very outgoing at parties.'},
+{en:'overwhelm',ko:'압도하다',phonetic:'/ˌoʊvərˈwɛlm/',cat:'감정/성격',example:'The workload overwhelmed him.'},
+{en:'passionate',ko:'열정적인',phonetic:'/ˈpæʃənət/',cat:'감정/성격',example:'She is passionate about music.'},
+{en:'pessimistic',ko:'비관적인',phonetic:'/ˌpɛsɪˈmɪstɪk/',cat:'감정/성격',example:'He is too pessimistic about the future.'},
+{en:'pleased',ko:'기쁜, 만족한',phonetic:'/pliːzd/',cat:'감정/성격',example:'She was pleased with the gift.'},
+{en:'polite',ko:'예의 바른',phonetic:'/pəˈlaɪt/',cat:'감정/성격',example:'It is polite to say thank you.'},
+{en:'possessive',ko:'소유욕이 강한',phonetic:'/pəˈzɛsɪv/',cat:'감정/성격',example:'He is very possessive about his things.'},
+{en:'practical',ko:'실용적인',phonetic:'/ˈpræktɪkl/',cat:'감정/성격',example:'She has a practical approach to problems.'},
+{en:'prejudice',ko:'편견',phonetic:'/ˈprɛdʒʊdɪs/',cat:'감정/성격',example:'We must overcome prejudice.'},
+{en:'proud',ko:'자랑스러운',phonetic:'/praʊd/',cat:'감정/성격',example:'Her parents were proud of her.'},
+{en:'reckless',ko:'무모한',phonetic:'/ˈrɛkləs/',cat:'감정/성격',example:'Reckless driving is dangerous.'},
+{en:'regret',ko:'후회하다',phonetic:'/rɪˈɡrɛt/',cat:'감정/성격',example:'He regretted his decision.'},
+{en:'reliable',ko:'믿을 수 있는',phonetic:'/rɪˈlaɪəbl/',cat:'감정/성격',example:'She is a reliable person.'},
+{en:'reluctant',ko:'마지못해 하는',phonetic:'/rɪˈlʌktənt/',cat:'감정/성격',example:'He was reluctant to leave.'},
+{en:'resentful',ko:'분개한, 억울한',phonetic:'/rɪˈzɛntfl/',cat:'감정/성격',example:'She felt resentful about the unfair treatment.'},
+{en:'resilient',ko:'회복력 있는',phonetic:'/rɪˈzɪliənt/',cat:'감정/성격',example:'Children are surprisingly resilient.'},
+{en:'responsible',ko:'책임감 있는',phonetic:'/rɪˈspɒnsɪbl/',cat:'감정/성격',example:'Be responsible for your actions.'},
+{en:'restless',ko:'가만히 못 있는',phonetic:'/ˈrɛstləs/',cat:'감정/성격',example:'The child was restless in class.'},
+{en:'satisfied',ko:'만족한',phonetic:'/ˈsætɪsfaɪd/',cat:'감정/성격',example:'Are you satisfied with the result?'},
+{en:'sensitive',ko:'민감한',phonetic:'/ˈsɛnsɪtɪv/',cat:'감정/성격',example:'She is sensitive to criticism.'},
+{en:'sincere',ko:'진심 어린',phonetic:'/sɪnˈsɪər/',cat:'감정/성격',example:'He gave a sincere apology.'},
+{en:'stubborn',ko:'고집스러운',phonetic:'/ˈstʌbərn/',cat:'감정/성격',example:'He is too stubborn to admit his mistake.'},
+{en:'sympathize',ko:'공감하다',phonetic:'/ˈsɪmpəθaɪz/',cat:'감정/성격',example:'I sympathize with your situation.'},
+{en:'tense',ko:'긴장한',phonetic:'/tɛns/',cat:'감정/성격',example:'The atmosphere was tense.'},
+{en:'terrified',ko:'극도로 무서운',phonetic:'/ˈtɛrɪfaɪd/',cat:'감정/성격',example:'She was terrified of spiders.'},
+{en:'tolerant',ko:'관대한',phonetic:'/ˈtɒlərənt/',cat:'감정/성격',example:'Be tolerant of different opinions.'},
+{en:'trustworthy',ko:'신뢰할 수 있는',phonetic:'/ˈtrʌstwɜːrði/',cat:'감정/성격',example:'He is a trustworthy friend.'},
+{en:'uncomfortable',ko:'불편한',phonetic:'/ʌnˈkʌmftəbl/',cat:'감정/성격',example:'The silence made me uncomfortable.'},
+{en:'unique',ko:'독특한',phonetic:'/juːˈniːk/',cat:'감정/성격',example:'Everyone has a unique personality.'},
+{en:'upset',ko:'화가 난, 속상한',phonetic:'/ʌpˈsɛt/',cat:'감정/성격',example:'She was upset about the news.'},
+{en:'vain',ko:'자만하는, 허영심 있는',phonetic:'/veɪn/',cat:'감정/성격',example:'He is too vain to admit defeat.'},
+{en:'vivid',ko:'생생한',phonetic:'/ˈvɪvɪd/',cat:'감정/성격',example:'She has vivid memories of childhood.'},
+{en:'vulnerable',ko:'취약한',phonetic:'/ˈvʌlnərəbl/',cat:'감정/성격',example:'Children are vulnerable to illness.'},
+{en:'warmhearted',ko:'따뜻한 마음의',phonetic:'/ˈwɔːrmhɑːrtɪd/',cat:'감정/성격',example:'She is a warmhearted teacher.'},
+{en:'willingness',ko:'기꺼이 하는 마음',phonetic:'/ˈwɪlɪŋnəs/',cat:'감정/성격',example:'His willingness to help was appreciated.'},
+{en:'wise',ko:'지혜로운',phonetic:'/waɪz/',cat:'감정/성격',example:'She gave me wise advice.'},
+
+// ===== 학문/지식 (100개) =====
+{en:'abstract',ko:'추상적인, 요약',phonetic:'/ˈæbstrækt/',cat:'학문/지식',example:'The painting is very abstract.'},
+{en:'algebra',ko:'대수학',phonetic:'/ˈældʒɪbrə/',cat:'학문/지식',example:'Algebra uses letters to represent numbers.'},
+{en:'analyze',ko:'분석하다',phonetic:'/ˈænəlaɪz/',cat:'학문/지식',example:'We need to analyze the data.'},
+{en:'anatomy',ko:'해부학',phonetic:'/əˈnætəmi/',cat:'학문/지식',example:'We studied anatomy in science class.'},
+{en:'archaeology',ko:'고고학',phonetic:'/ˌɑːrkiˈɒlədʒi/',cat:'학문/지식',example:'Archaeology helps us understand ancient life.'},
+{en:'argument',ko:'주장, 논거',phonetic:'/ˈɑːrɡjumənt/',cat:'학문/지식',example:'His argument was convincing.'},
+{en:'arithmetic',ko:'산수, 연산',phonetic:'/əˈrɪθmətɪk/',cat:'학문/지식',example:'Basic arithmetic is taught in primary school.'},
+{en:'biography',ko:'전기, 일대기',phonetic:'/baɪˈɒɡrəfi/',cat:'학문/지식',example:'I read a biography of Einstein.'},
+{en:'calculation',ko:'계산',phonetic:'/ˌkælkjuˈleɪʃn/',cat:'학문/지식',example:'Double-check your calculation.'},
+{en:'category',ko:'범주, 분류',phonetic:'/ˈkætəɡɒri/',cat:'학문/지식',example:'Put the books into categories.'},
+{en:'chemistry',ko:'화학',phonetic:'/ˈkɛmɪstri/',cat:'학문/지식',example:'Chemistry explains how substances change.'},
+{en:'classify',ko:'분류하다',phonetic:'/ˈklæsɪfaɪ/',cat:'학문/지식',example:'Scientists classify living things.'},
+{en:'clue',ko:'단서',phonetic:'/kluː/',cat:'학문/지식',example:'The clue helped solve the mystery.'},
+{en:'comprehend',ko:'이해하다',phonetic:'/ˌkɒmprɪˈhɛnd/',cat:'학문/지식',example:'I could not comprehend the text.'},
+{en:'concept',ko:'개념',phonetic:'/ˈkɒnsɛpt/',cat:'학문/지식',example:'The concept of gravity is important.'},
+{en:'conclusion',ko:'결론',phonetic:'/kənˈkluːʒn/',cat:'학문/지식',example:'What conclusion did you reach?'},
+{en:'context',ko:'맥락, 상황',phonetic:'/ˈkɒntɛkst/',cat:'학문/지식',example:'Read the word in context.'},
+{en:'contrast',ko:'대조하다, 대조',phonetic:'/ˈkɒntrɑːst/',cat:'학문/지식',example:'Contrast these two poems.'},
+{en:'convention',ko:'관례, 협약',phonetic:'/kənˈvɛnʃn/',cat:'학문/지식',example:'Follow the writing convention.'},
+{en:'critical',ko:'비판적인, 중요한',phonetic:'/ˈkrɪtɪkl/',cat:'학문/지식',example:'Think critically about the argument.'},
+{en:'deduce',ko:'추론하다',phonetic:'/dɪˈdjuːs/',cat:'학문/지식',example:'Can you deduce the answer?'},
+{en:'define',ko:'정의하다',phonetic:'/dɪˈfaɪn/',cat:'학문/지식',example:'Define the term in your own words.'},
+{en:'demonstrate',ko:'시연하다, 입증하다',phonetic:'/ˈdɛmənstreɪt/',cat:'학문/지식',example:'He demonstrated the experiment.'},
+{en:'diagram',ko:'도표, 도식',phonetic:'/ˈdaɪəɡræm/',cat:'학문/지식',example:'Draw a diagram to explain it.'},
+{en:'dimension',ko:'차원, 크기',phonetic:'/daɪˈmɛnʃn/',cat:'학문/지식',example:'We live in three dimensions.'},
+{en:'discover',ko:'발견하다',phonetic:'/dɪˈskʌvər/',cat:'학문/지식',example:'Columbus discovered America.'},
+{en:'distinguish',ko:'구별하다',phonetic:'/dɪˈstɪŋɡwɪʃ/',cat:'학문/지식',example:'Distinguish between facts and opinions.'},
+{en:'document',ko:'문서, 기록하다',phonetic:'/ˈdɒkjumənt/',cat:'학문/지식',example:'Document your research process.'},
+{en:'element',ko:'요소, 원소',phonetic:'/ˈɛlɪmənt/',cat:'학문/지식',example:'Oxygen is an element.'},
+{en:'evaluate',ko:'평가하다',phonetic:'/ɪˈvæljueɪt/',cat:'학문/지식',example:'Evaluate the pros and cons.'},
+{en:'evolution',ko:'진화',phonetic:'/ˌiːvəˈluːʃn/',cat:'학문/지식',example:'Darwin studied the theory of evolution.'},
+{en:'experiment',ko:'실험',phonetic:'/ɪkˈspɛrɪmənt/',cat:'학문/지식',example:'The experiment proved the theory.'},
+{en:'factor',ko:'요인, 인수',phonetic:'/ˈfæktər/',cat:'학문/지식',example:'Diet is a key factor in health.'},
+{en:'fiction',ko:'소설, 허구',phonetic:'/ˈfɪkʃn/',cat:'학문/지식',example:'I prefer fiction to non-fiction.'},
+{en:'formula',ko:'공식',phonetic:'/ˈfɔːrmjulə/',cat:'학문/지식',example:'Use the formula to calculate area.'},
+{en:'fossil',ko:'화석',phonetic:'/ˈfɒsl/',cat:'학문/지식',example:'They found a dinosaur fossil.'},
+{en:'foundation',ko:'토대, 기초',phonetic:'/faʊnˈdeɪʃn/',cat:'학문/지식',example:'Math is the foundation of science.'},
+{en:'fraction',ko:'분수, 일부',phonetic:'/ˈfrækʃn/',cat:'학문/지식',example:'Only a fraction of students passed.'},
+{en:'function',ko:'기능, 함수',phonetic:'/ˈfʌŋkʃn/',cat:'학문/지식',example:'What is the function of the heart?'},
+{en:'gene',ko:'유전자',phonetic:'/dʒiːn/',cat:'학문/지식',example:'Genes determine our traits.'},
+{en:'generate',ko:'발생시키다',phonetic:'/ˈdʒɛnəreɪt/',cat:'학문/지식',example:'Solar panels generate electricity.'},
+{en:'geography',ko:'지리학',phonetic:'/dʒiˈɒɡrəfi/',cat:'학문/지식',example:'Geography teaches us about the earth.'},
+{en:'gravity',ko:'중력',phonetic:'/ˈɡrævɪti/',cat:'학문/지식',example:'Gravity keeps us on the ground.'},
+{en:'hypothesis',ko:'가설',phonetic:'/haɪˈpɒθɪsɪs/',cat:'학문/지식',example:'Test your hypothesis with an experiment.'},
+{en:'identify',ko:'확인하다, 동일시하다',phonetic:'/aɪˈdɛntɪfaɪ/',cat:'학문/지식',example:'Can you identify the problem?'},
+{en:'illustrate',ko:'설명하다, 삽화를 넣다',phonetic:'/ˈɪləstreɪt/',cat:'학문/지식',example:'The graph illustrates the trend.'},
+{en:'influence',ko:'영향, 영향을 미치다',phonetic:'/ˈɪnfluəns/',cat:'학문/지식',example:'Music influences our emotions.'},
+{en:'interpret',ko:'해석하다',phonetic:'/ɪnˈtɜːrprɪt/',cat:'학문/지식',example:'How do you interpret this poem?'},
+{en:'investigate',ko:'조사하다',phonetic:'/ɪnˈvɛstɪɡeɪt/',cat:'학문/지식',example:'We investigated the cause of the fire.'},
+{en:'laboratory',ko:'실험실',phonetic:'/ləˈbɒrətɒri/',cat:'학문/지식',example:'We worked in the school laboratory.'},
+{en:'logical',ko:'논리적인',phonetic:'/ˈlɒdʒɪkl/',cat:'학문/지식',example:'That is a logical conclusion.'},
+{en:'manuscript',ko:'원고, 필사본',phonetic:'/ˈmænjuskrɪpt/',cat:'학문/지식',example:'The ancient manuscript was discovered.'},
+{en:'microscope',ko:'현미경',phonetic:'/ˈmaɪkrəskoʊp/',cat:'학문/지식',example:'We used a microscope to see cells.'},
+{en:'molecule',ko:'분자',phonetic:'/ˈmɒlɪkjuːl/',cat:'학문/지식',example:'Water is made of two molecules.'},
+{en:'multiply',ko:'곱하다, 증가시키다',phonetic:'/ˈmʌltɪplaɪ/',cat:'학문/지식',example:'Multiply four by five.'},
+{en:'narrative',ko:'이야기, 서술',phonetic:'/ˈnærətɪv/',cat:'학문/지식',example:'The narrative was engaging.'},
+{en:'nucleus',ko:'핵, 중심',phonetic:'/ˈnjuːkliəs/',cat:'학문/지식',example:'The nucleus is the cell\'s control center.'},
+{en:'observe',ko:'관찰하다',phonetic:'/əbˈzɜːrv/',cat:'학문/지식',example:'Observe the stars through a telescope.'},
+{en:'obtain',ko:'얻다',phonetic:'/əbˈteɪn/',cat:'학문/지식',example:'How did you obtain this data?'},
+{en:'orbit',ko:'궤도, 공전하다',phonetic:'/ˈɔːrbɪt/',cat:'학문/지식',example:'The earth orbits the sun.'},
+{en:'organism',ko:'유기체, 생물',phonetic:'/ˈɔːrɡənɪzəm/',cat:'학문/지식',example:'A bacterium is a living organism.'},
+{en:'parallel',ko:'평행한, 유사한',phonetic:'/ˈpærəlɛl/',cat:'학문/지식',example:'The two lines are parallel.'},
+{en:'particle',ko:'입자',phonetic:'/ˈpɑːrtɪkl/',cat:'학문/지식',example:'Atoms are made of particles.'},
+{en:'percentage',ko:'백분율',phonetic:'/pərˈsɛntɪdʒ/',cat:'학문/지식',example:'What percentage of students passed?'},
+{en:'phenomenon',ko:'현상',phonetic:'/fɪˈnɒmɪnən/',cat:'학문/지식',example:'The rainbow is a natural phenomenon.'},
+{en:'photosynthesis',ko:'광합성',phonetic:'/ˌfoʊtoʊˈsɪnθɪsɪs/',cat:'학문/지식',example:'Plants produce food through photosynthesis.'},
+{en:'predict',ko:'예측하다',phonetic:'/prɪˈdɪkt/',cat:'학문/지식',example:'Scientists predict climate change.'},
+{en:'principle',ko:'원칙, 원리',phonetic:'/ˈprɪnsɪpl/',cat:'학문/지식',example:'The basic principles of science.'},
+{en:'process',ko:'과정, 처리하다',phonetic:'/ˈproʊsɛs/',cat:'학문/지식',example:'Explain the digestive process.'},
+{en:'proof',ko:'증거, 증명',phonetic:'/pruːf/',cat:'학문/지식',example:'Show proof of your theory.'},
+{en:'proportion',ko:'비율, 부분',phonetic:'/prəˈpɔːrʃn/',cat:'학문/지식',example:'Mix in the correct proportions.'},
+{en:'publish',ko:'출판하다',phonetic:'/ˈpʌblɪʃ/',cat:'학문/지식',example:'She published her first novel.'},
+{en:'ratio',ko:'비율',phonetic:'/ˈreɪʃioʊ/',cat:'학문/지식',example:'The ratio of students to teachers is 30:1.'},
+{en:'recognize',ko:'인식하다, 알아보다',phonetic:'/ˈrɛkəɡnaɪz/',cat:'학문/지식',example:'I recognized her voice on the phone.'},
+{en:'refer',ko:'언급하다, 참고하다',phonetic:'/rɪˈfɜːr/',cat:'학문/지식',example:'Refer to the dictionary for meaning.'},
+{en:'reflect',ko:'반영하다, 반사하다',phonetic:'/rɪˈflɛkt/',cat:'학문/지식',example:'The lake reflected the sky.'},
+{en:'relevant',ko:'관련 있는',phonetic:'/ˈrɛlɪvənt/',cat:'학문/지식',example:'Choose relevant examples.'},
+{en:'represent',ko:'나타내다, 대표하다',phonetic:'/ˌrɛprɪˈzɛnt/',cat:'학문/지식',example:'Red represents danger.'},
+{en:'research',ko:'연구하다, 조사',phonetic:'/rɪˈsɜːrtʃ/',cat:'학문/지식',example:'She spent years doing research.'},
+{en:'resource',ko:'자원, 자료',phonetic:'/ˈriːsɔːrs/',cat:'학문/지식',example:'Use available resources wisely.'},
+{en:'respond',ko:'반응하다, 답하다',phonetic:'/rɪˈspɒnd/',cat:'학문/지식',example:'How did the students respond?'},
+{en:'revolution',ko:'혁명, 공전',phonetic:'/ˌrɛvəˈluːʃn/',cat:'학문/지식',example:'The Industrial Revolution changed society.'},
+{en:'solve',ko:'해결하다, 풀다',phonetic:'/sɒlv/',cat:'학문/지식',example:'Solve the equation step by step.'},
+{en:'source',ko:'출처, 원천',phonetic:'/sɔːrs/',cat:'학문/지식',example:'Cite your source in the essay.'},
+{en:'structure',ko:'구조',phonetic:'/ˈstrʌktʃər/',cat:'학문/지식',example:'What is the structure of a cell?'},
+{en:'submit',ko:'제출하다',phonetic:'/səbˈmɪt/',cat:'학문/지식',example:'Submit the assignment by Friday.'},
+{en:'subtract',ko:'빼다',phonetic:'/səbˈtrækt/',cat:'학문/지식',example:'Subtract five from ten.'},
+{en:'summarize',ko:'요약하다',phonetic:'/ˈsʌməraɪz/',cat:'학문/지식',example:'Summarize the story in three sentences.'},
+{en:'survey',ko:'조사, 설문',phonetic:'/ˈsɜːrveɪ/',cat:'학문/지식',example:'We conducted a survey of 200 students.'},
+{en:'symbol',ko:'상징, 기호',phonetic:'/ˈsɪmbl/',cat:'학문/지식',example:'The dove is a symbol of peace.'},
+{en:'technology',ko:'기술',phonetic:'/tɛkˈnɒlədʒi/',cat:'학문/지식',example:'Technology changes our daily life.'},
+{en:'theory',ko:'이론',phonetic:'/ˈθɪəri/',cat:'학문/지식',example:'Einstein developed a new theory.'},
+{en:'translate',ko:'번역하다',phonetic:'/trænsˈleɪt/',cat:'학문/지식',example:'Can you translate this sentence?'},
+{en:'universal',ko:'보편적인, 우주의',phonetic:'/ˌjuːnɪˈvɜːrsəl/',cat:'학문/지식',example:'Music is a universal language.'},
+{en:'valid',ko:'유효한, 타당한',phonetic:'/ˈvælɪd/',cat:'학문/지식',example:'Is this a valid argument?'},
+{en:'variable',ko:'변수, 가변적인',phonetic:'/ˈvɛəriəbl/',cat:'학문/지식',example:'Temperature is a variable in the experiment.'},
+{en:'vocabulary',ko:'어휘',phonetic:'/vəˈkæbjulɛri/',cat:'학문/지식',example:'Build your vocabulary every day.'},
+{en:'volume',ko:'부피, 음량',phonetic:'/ˈvɒljuːm/',cat:'학문/지식',example:'Calculate the volume of the box.'},
+
+// ===== 사회/문화 (100개) =====
+{en:'authority',ko:'권위, 당국',phonetic:'/ɔːˈθɒrɪti/',cat:'사회/문화',example:'Respect authority and follow the rules.'},
+{en:'campaign',ko:'운동, 캠페인',phonetic:'/kæmˈpeɪn/',cat:'사회/문화',example:'They ran a campaign for clean air.'},
+{en:'capital',ko:'수도, 자본',phonetic:'/ˈkæpɪtl/',cat:'사회/문화',example:'Seoul is the capital of Korea.'},
+{en:'census',ko:'인구 조사',phonetic:'/ˈsɛnsəs/',cat:'사회/문화',example:'The census is taken every ten years.'},
+{en:'citizenship',ko:'시민권',phonetic:'/ˈsɪtɪzənʃɪp/',cat:'사회/문화',example:'She applied for citizenship.'},
+{en:'civil',ko:'시민의, 예의 바른',phonetic:'/ˈsɪvl/',cat:'사회/문화',example:'Civil rights are important for all.'},
+{en:'community',ko:'공동체, 지역사회',phonetic:'/kəˈmjuːnɪti/',cat:'사회/문화',example:'Volunteering helps the community.'},
+{en:'conflict',ko:'갈등, 충돌',phonetic:'/ˈkɒnflɪkt/',cat:'사회/문화',example:'The conflict between the two countries.'},
+{en:'constitution',ko:'헌법',phonetic:'/ˌkɒnstɪˈtjuːʃn/',cat:'사회/문화',example:'The constitution protects citizens.'},
+{en:'contribute',ko:'기여하다',phonetic:'/kənˈtrɪbjuːt/',cat:'사회/문화',example:'Everyone should contribute to society.'},
+{en:'custom',ko:'관습, 세관',phonetic:'/ˈkʌstəm/',cat:'사회/문화',example:'It is a local custom to bow.'},
+{en:'decade',ko:'10년',phonetic:'/ˈdɛkeɪd/',cat:'사회/문화',example:'A decade passed before they met again.'},
+{en:'democracy',ko:'민주주의',phonetic:'/dɪˈmɒkrəsi/',cat:'사회/문화',example:'We live in a democracy.'},
+{en:'diverse',ko:'다양한',phonetic:'/daɪˈvɜːrs/',cat:'사회/문화',example:'The city has a diverse population.'},
+{en:'donate',ko:'기부하다',phonetic:'/doʊˈneɪt/',cat:'사회/문화',example:'She donated money to the poor.'},
+{en:'economy',ko:'경제',phonetic:'/ɪˈkɒnəmi/',cat:'사회/문화',example:'The economy is growing slowly.'},
+{en:'election',ko:'선거',phonetic:'/ɪˈlɛkʃn/',cat:'사회/문화',example:'The election is held every four years.'},
+{en:'eliminate',ko:'제거하다',phonetic:'/ɪˈlɪmɪneɪt/',cat:'사회/문화',example:'We must eliminate poverty.'},
+{en:'embassy',ko:'대사관',phonetic:'/ˈɛmbəsi/',cat:'사회/문화',example:'Visit the embassy for a visa.'},
+{en:'equality',ko:'평등',phonetic:'/ɪˈkwɒlɪti/',cat:'사회/문화',example:'We should fight for equality.'},
+{en:'ethnic',ko:'민족의',phonetic:'/ˈɛθnɪk/',cat:'사회/문화',example:'Korea has one major ethnic group.'},
+{en:'exceed',ko:'초과하다',phonetic:'/ɪkˈsiːd/',cat:'사회/문화',example:'Do not exceed the speed limit.'},
+{en:'exploit',ko:'착취하다, 개발하다',phonetic:'/ɪkˈsplɔɪt/',cat:'사회/문화',example:'Do not exploit workers.'},
+{en:'export',ko:'수출하다',phonetic:'/ɛkˈspɔːrt/',cat:'사회/문화',example:'Korea exports many electronic products.'},
+{en:'famine',ko:'기아, 기근',phonetic:'/ˈfæmɪn/',cat:'사회/문화',example:'The famine affected millions.'},
+{en:'festival',ko:'축제',phonetic:'/ˈfɛstɪvl/',cat:'사회/문화',example:'Chuseok is an important Korean festival.'},
+{en:'foundation',ko:'재단, 기초',phonetic:'/faʊnˈdeɪʃn/',cat:'사회/문화',example:'The charity foundation helps children.'},
+{en:'freedom',ko:'자유',phonetic:'/ˈfriːdəm/',cat:'사회/문화',example:'Freedom of speech is a basic right.'},
+{en:'generation',ko:'세대',phonetic:'/ˌdʒɛnəˈreɪʃn/',cat:'사회/문화',example:'Each generation faces new challenges.'},
+{en:'global',ko:'세계적인',phonetic:'/ˈɡloʊbl/',cat:'사회/문화',example:'We live in a global society.'},
+{en:'govern',ko:'통치하다',phonetic:'/ˈɡʌvərn/',cat:'사회/문화',example:'Who governs the country?'},
+{en:'heritage',ko:'유산',phonetic:'/ˈhɛrɪtɪdʒ/',cat:'사회/문화',example:'Protect our cultural heritage.'},
+{en:'hierarchy',ko:'계층, 위계',phonetic:'/ˈhaɪərɑːrki/',cat:'사회/문화',example:'Korea has a strong social hierarchy.'},
+{en:'humanitarian',ko:'인도주의적',phonetic:'/hjuːˌmænɪˈtɛəriən/',cat:'사회/문화',example:'They provided humanitarian aid.'},
+{en:'identity',ko:'정체성',phonetic:'/aɪˈdɛntɪti/',cat:'사회/문화',example:'Cultural identity is important.'},
+{en:'immigrant',ko:'이민자',phonetic:'/ˈɪmɪɡrənt/',cat:'사회/문화',example:'Many immigrants built new lives here.'},
+{en:'income',ko:'수입, 소득',phonetic:'/ˈɪnkʌm/',cat:'사회/문화',example:'Average income has risen.'},
+{en:'independence',ko:'독립',phonetic:'/ˌɪndɪˈpɛndəns/',cat:'사회/문화',example:'Korea gained independence in 1945.'},
+{en:'industry',ko:'산업',phonetic:'/ˈɪndəstri/',cat:'사회/문화',example:'The auto industry is growing.'},
+{en:'inequality',ko:'불평등',phonetic:'/ˌɪnɪˈkwɒlɪti/',cat:'사회/문화',example:'Income inequality is a big issue.'},
+{en:'infrastructure',ko:'사회 기반 시설',phonetic:'/ˈɪnfrəstrʌktʃər/',cat:'사회/문화',example:'Good infrastructure boosts the economy.'},
+{en:'institution',ko:'기관, 제도',phonetic:'/ˌɪnstɪˈtjuːʃn/',cat:'사회/문화',example:'Schools are important institutions.'},
+{en:'integrate',ko:'통합하다',phonetic:'/ˈɪntɪɡreɪt/',cat:'사회/문화',example:'Integrate technology into learning.'},
+{en:'invade',ko:'침략하다',phonetic:'/ɪnˈveɪd/',cat:'사회/문화',example:'The country was invaded in 1950.'},
+{en:'justice',ko:'정의, 사법',phonetic:'/ˈdʒʌstɪs/',cat:'사회/문화',example:'Everyone deserves justice.'},
+{en:'landmark',ko:'주요 지점, 역사적 사건',phonetic:'/ˈlændmɑːrk/',cat:'사회/문화',example:'The Eiffel Tower is a famous landmark.'},
+{en:'language',ko:'언어',phonetic:'/ˈlæŋɡwɪdʒ/',cat:'사회/문화',example:'Learning a new language is challenging.'},
+{en:'legend',ko:'전설',phonetic:'/ˈlɛdʒənd/',cat:'사회/문화',example:'It is a local legend passed down for years.'},
+{en:'liberty',ko:'자유',phonetic:'/ˈlɪbərti/',cat:'사회/문화',example:'The Statue of Liberty is in New York.'},
+{en:'majority',ko:'다수',phonetic:'/məˈdʒɒrɪti/',cat:'사회/문화',example:'The majority voted in favor.'},
+{en:'migrate',ko:'이동하다, 이주하다',phonetic:'/maɪˈɡreɪt/',cat:'사회/문화',example:'Birds migrate south for winter.'},
+{en:'minority',ko:'소수',phonetic:'/maɪˈnɒrɪti/',cat:'사회/문화',example:'Protect the rights of minorities.'},
+{en:'monument',ko:'기념물',phonetic:'/ˈmɒnjumənt/',cat:'사회/문화',example:'They built a monument to honor heroes.'},
+{en:'moral',ko:'도덕적인, 교훈',phonetic:'/ˈmɒrəl/',cat:'사회/문화',example:'What is the moral of the story?'},
+{en:'multicultural',ko:'다문화의',phonetic:'/ˌmʌltiˈkʌltʃərəl/',cat:'사회/문화',example:'We live in a multicultural society.'},
+{en:'myth',ko:'신화',phonetic:'/mɪθ/',cat:'사회/문화',example:'Greek myths are very interesting.'},
+{en:'negotiate',ko:'협상하다',phonetic:'/nɪˈɡoʊʃieɪt/',cat:'사회/문화',example:'They negotiated a peace deal.'},
+{en:'norm',ko:'규범, 표준',phonetic:'/nɔːrm/',cat:'사회/문화',example:'Social norms differ across cultures.'},
+{en:'oppression',ko:'억압',phonetic:'/əˈprɛʃn/',cat:'사회/문화',example:'The people suffered under oppression.'},
+{en:'organization',ko:'조직',phonetic:'/ˌɔːrɡənaɪˈzeɪʃn/',cat:'사회/문화',example:'She works for a global organization.'},
+{en:'parliament',ko:'의회',phonetic:'/ˈpɑːrləmənt/',cat:'사회/문화',example:'The law was passed by parliament.'},
+{en:'participate',ko:'참가하다',phonetic:'/pɑːˈtɪsɪpeɪt/',cat:'사회/문화',example:'Participate in the school election.'},
+{en:'policy',ko:'정책',phonetic:'/ˈpɒlɪsi/',cat:'사회/문화',example:'The new education policy begins next year.'},
+{en:'politics',ko:'정치',phonetic:'/ˈpɒlɪtɪks/',cat:'사회/문화',example:'She is interested in politics.'},
+{en:'population',ko:'인구',phonetic:'/ˌpɒpjuˈleɪʃn/',cat:'사회/문화',example:'The world population is over 8 billion.'},
+{en:'poverty',ko:'빈곤',phonetic:'/ˈpɒvərti/',cat:'사회/문화',example:'We must fight against poverty.'},
+{en:'prejudice',ko:'편견',phonetic:'/ˈprɛdʒudɪs/',cat:'사회/문화',example:'Overcome your prejudice about others.'},
+{en:'protest',ko:'항의하다, 시위',phonetic:'/ˈproʊtɛst/',cat:'사회/문화',example:'People gathered to protest the law.'},
+{en:'publish',ko:'발표하다, 출판하다',phonetic:'/ˈpʌblɪʃ/',cat:'사회/문화',example:'She published her research findings.'},
+{en:'reform',ko:'개혁하다',phonetic:'/rɪˈfɔːrm/',cat:'사회/문화',example:'The education system needs reform.'},
+{en:'refugee',ko:'난민',phonetic:'/ˌrɛfjuˈdʒiː/',cat:'사회/문화',example:'Many refugees fled the war.'},
+{en:'religion',ko:'종교',phonetic:'/rɪˈlɪdʒən/',cat:'사회/문화',example:'Religion plays a big role in culture.'},
+{en:'represent',ko:'대표하다',phonetic:'/ˌrɛprɪˈzɛnt/',cat:'사회/문화',example:'She represents our school.'},
+{en:'revolution',ko:'혁명',phonetic:'/ˌrɛvəˈluːʃn/',cat:'사회/문화',example:'The revolution changed the government.'},
+{en:'rural',ko:'시골의',phonetic:'/ˈrʊərəl/',cat:'사회/문화',example:'Life in rural areas is different.'},
+{en:'sacrifice',ko:'희생하다, 희생',phonetic:'/ˈsækrɪfaɪs/',cat:'사회/문화',example:'Parents sacrifice for their children.'},
+{en:'slavery',ko:'노예 제도',phonetic:'/ˈsleɪvəri/',cat:'사회/문화',example:'Slavery was abolished in the 19th century.'},
+{en:'solution',ko:'해결책',phonetic:'/səˈluːʃn/',cat:'사회/문화',example:'Find a solution to this problem.'},
+{en:'stereotype',ko:'고정관념',phonetic:'/ˈstɛriəˌtaɪp/',cat:'사회/문화',example:'Don\'t judge people by stereotypes.'},
+{en:'suburb',ko:'교외',phonetic:'/ˈsʌbɜːrb/',cat:'사회/문화',example:'Many families move to the suburbs.'},
+{en:'survey',ko:'조사, 설문조사',phonetic:'/ˈsɜːrveɪ/',cat:'사회/문화',example:'A recent survey showed that...'},
+{en:'symbol',ko:'상징',phonetic:'/ˈsɪmbl/',cat:'사회/문화',example:'The flag is a symbol of the nation.'},
+{en:'tax',ko:'세금',phonetic:'/tæks/',cat:'사회/문화',example:'Citizens must pay taxes.'},
+{en:'tolerance',ko:'관용',phonetic:'/ˈtɒlərəns/',cat:'사회/문화',example:'Society requires tolerance.'},
+{en:'trade',ko:'무역하다, 거래',phonetic:'/treɪd/',cat:'사회/문화',example:'International trade benefits all countries.'},
+{en:'tradition',ko:'전통',phonetic:'/trəˈdɪʃn/',cat:'사회/문화',example:'Korean traditions are unique.'},
+{en:'urban',ko:'도시의',phonetic:'/ˈɜːrbən/',cat:'사회/문화',example:'Urban areas are growing fast.'},
+{en:'welfare',ko:'복지',phonetic:'/ˈwɛlfɛər/',cat:'사회/문화',example:'Child welfare is a priority.'},
+
+// ===== 자연/과학 (100개) =====
+{en:'atmosphere',ko:'대기, 분위기',phonetic:'/ˈætməsfɪər/',cat:'자연/과학',example:'The atmosphere protects the earth.'},
+{en:'bacteria',ko:'박테리아',phonetic:'/bækˈtɪəriə/',cat:'자연/과학',example:'Some bacteria cause illness.'},
+{en:'biodiversity',ko:'생물 다양성',phonetic:'/ˌbaɪoʊdaɪˈvɜːrsɪti/',cat:'자연/과학',example:'Biodiversity is vital for ecosystems.'},
+{en:'carbon',ko:'탄소',phonetic:'/ˈkɑːrbən/',cat:'자연/과학',example:'Carbon dioxide is a greenhouse gas.'},
+{en:'carnivore',ko:'육식 동물',phonetic:'/ˈkɑːrnɪvɔːr/',cat:'자연/과학',example:'Lions are carnivores.'},
+{en:'cell',ko:'세포',phonetic:'/sɛl/',cat:'자연/과학',example:'Every living thing is made of cells.'},
+{en:'chemical',ko:'화학적인, 화학물질',phonetic:'/ˈkɛmɪkl/',cat:'자연/과학',example:'Be careful with chemical substances.'},
+{en:'climate',ko:'기후',phonetic:'/ˈklaɪmɪt/',cat:'자연/과학',example:'The climate is changing rapidly.'},
+{en:'coast',ko:'해안',phonetic:'/koʊst/',cat:'자연/과학',example:'They live near the coast.'},
+{en:'comet',ko:'혜성',phonetic:'/ˈkɒmɪt/',cat:'자연/과학',example:'A comet passes close to earth.'},
+{en:'condensation',ko:'응결',phonetic:'/ˌkɒndɛnˈseɪʃn/',cat:'자연/과학',example:'Condensation forms on cold glasses.'},
+{en:'conservation',ko:'보존, 자연 보호',phonetic:'/ˌkɒnsəˈveɪʃn/',cat:'자연/과학',example:'Conservation of wildlife is important.'},
+{en:'continent',ko:'대륙',phonetic:'/ˈkɒntɪnənt/',cat:'자연/과학',example:'There are seven continents.'},
+{en:'coral',ko:'산호',phonetic:'/ˈkɒrəl/',cat:'자연/과학',example:'Coral reefs are home to many fish.'},
+{en:'creek',ko:'개울',phonetic:'/kriːk/',cat:'자연/과학',example:'The children played by the creek.'},
+{en:'cycle',ko:'순환, 주기',phonetic:'/ˈsaɪkl/',cat:'자연/과학',example:'The water cycle recycles water.'},
+{en:'decay',ko:'부패하다',phonetic:'/dɪˈkeɪ/',cat:'자연/과학',example:'Organic matter decays over time.'},
+{en:'drought',ko:'가뭄',phonetic:'/draʊt/',cat:'자연/과학',example:'The drought destroyed the crops.'},
+{en:'earthquake',ko:'지진',phonetic:'/ˈɜːrθkweɪk/',cat:'자연/과학',example:'A strong earthquake hit the region.'},
+{en:'eclipse',ko:'일식, 월식',phonetic:'/ɪˈklɪps/',cat:'자연/과학',example:'A solar eclipse occurs rarely.'},
+{en:'ecosystem',ko:'생태계',phonetic:'/ˈiːkoʊsɪstəm/',cat:'자연/과학',example:'The rainforest ecosystem is complex.'},
+{en:'emission',ko:'배출',phonetic:'/ɪˈmɪʃn/',cat:'자연/과학',example:'Reduce carbon emissions.'},
+{en:'endangered',ko:'멸종 위기의',phonetic:'/ɪnˈdeɪndʒərd/',cat:'자연/과학',example:'Tigers are an endangered species.'},
+{en:'energy',ko:'에너지',phonetic:'/ˈɛnədʒi/',cat:'자연/과학',example:'Renewable energy is the future.'},
+{en:'environment',ko:'환경',phonetic:'/ɪnˈvaɪrənmənt/',cat:'자연/과학',example:'Protect our environment.'},
+{en:'erosion',ko:'침식',phonetic:'/ɪˈroʊʒn/',cat:'자연/과학',example:'Erosion wore away the rocks.'},
+{en:'evaporation',ko:'증발',phonetic:'/ɪˌvæpəˈreɪʃn/',cat:'자연/과학',example:'Heat causes evaporation.'},
+{en:'extinction',ko:'멸종',phonetic:'/ɪkˈstɪŋkʃn/',cat:'자연/과학',example:'Dinosaurs faced extinction.'},
+{en:'fauna',ko:'동물군',phonetic:'/ˈfɔːnə/',cat:'자연/과학',example:'Study the local flora and fauna.'},
+{en:'fertile',ko:'비옥한',phonetic:'/ˈfɜːrtl/',cat:'자연/과학',example:'The soil is very fertile here.'},
+{en:'flood',ko:'홍수',phonetic:'/flʌd/',cat:'자연/과학',example:'The flood destroyed many homes.'},
+{en:'flora',ko:'식물군',phonetic:'/ˈflɔːrə/',cat:'자연/과학',example:'The Amazon has diverse flora.'},
+{en:'fossil',ko:'화석',phonetic:'/ˈfɒsl/',cat:'자연/과학',example:'Fossils reveal ancient life.'},
+{en:'friction',ko:'마찰',phonetic:'/ˈfrɪkʃn/',cat:'자연/과학',example:'Friction creates heat.'},
+{en:'glacier',ko:'빙하',phonetic:'/ˈɡleɪsiər/',cat:'자연/과학',example:'Glaciers are melting due to warming.'},
+{en:'habitat',ko:'서식지',phonetic:'/ˈhæbɪtæt/',cat:'자연/과학',example:'The habitat of polar bears is shrinking.'},
+{en:'herbivore',ko:'초식 동물',phonetic:'/ˈhɜːrbɪvɔːr/',cat:'자연/과학',example:'Cows are herbivores.'},
+{en:'hibernate',ko:'동면하다',phonetic:'/ˈhaɪbərneɪt/',cat:'자연/과학',example:'Bears hibernate in winter.'},
+{en:'horizon',ko:'수평선, 지평선',phonetic:'/həˈraɪzn/',cat:'자연/과학',example:'The sun set below the horizon.'},
+{en:'humidity',ko:'습도',phonetic:'/hjuːˈmɪdɪti/',cat:'자연/과학',example:'High humidity makes it feel hotter.'},
+{en:'hurricane',ko:'허리케인',phonetic:'/ˈhʌrɪkən/',cat:'자연/과학',example:'A hurricane hit the coast.'},
+{en:'insect',ko:'곤충',phonetic:'/ˈɪnsɛkt/',cat:'자연/과학',example:'Insects are important for pollination.'},
+{en:'latitude',ko:'위도',phonetic:'/ˈlætɪtjuːd/',cat:'자연/과학',example:'Korea is at 37 degrees north latitude.'},
+{en:'lava',ko:'용암',phonetic:'/ˈlɑːvə/',cat:'자연/과학',example:'Lava flowed down the volcano.'},
+{en:'lightning',ko:'번개',phonetic:'/ˈlaɪtnɪŋ/',cat:'자연/과학',example:'Lightning lit up the dark sky.'},
+{en:'longitude',ko:'경도',phonetic:'/ˈlɒndʒɪtjuːd/',cat:'자연/과학',example:'Use longitude to find a location.'},
+{en:'magnet',ko:'자석',phonetic:'/ˈmæɡnɪt/',cat:'자연/과학',example:'A magnet attracts iron.'},
+{en:'mammal',ko:'포유류',phonetic:'/ˈmæml/',cat:'자연/과학',example:'Whales are the largest mammals.'},
+{en:'meteorite',ko:'운석',phonetic:'/ˈmiːtiəraɪt/',cat:'자연/과학',example:'A meteorite hit the earth long ago.'},
+{en:'microbe',ko:'미생물',phonetic:'/ˈmaɪkroʊb/',cat:'자연/과학',example:'Microbes are everywhere.'},
+{en:'migration',ko:'이동, 이주',phonetic:'/maɪˈɡreɪʃn/',cat:'자연/과학',example:'Bird migration is a natural phenomenon.'},
+{en:'mineral',ko:'광물, 미네랄',phonetic:'/ˈmɪnərəl/',cat:'자연/과학',example:'Minerals are found in rocks.'},
+{en:'moisture',ko:'습기',phonetic:'/ˈmɔɪstʃər/',cat:'자연/과학',example:'Plants absorb moisture from the soil.'},
+{en:'monsoon',ko:'몬순, 우기',phonetic:'/ˈmɒnsuːn/',cat:'자연/과학',example:'The monsoon season brings heavy rain.'},
+{en:'nitrogen',ko:'질소',phonetic:'/ˈnaɪtrədʒən/',cat:'자연/과학',example:'Air is mostly nitrogen.'},
+{en:'nutrient',ko:'영양소',phonetic:'/ˈnjuːtriənt/',cat:'자연/과학',example:'Plants absorb nutrients from soil.'},
+{en:'ocean',ko:'바다, 대양',phonetic:'/ˈoʊʃn/',cat:'자연/과학',example:'The Pacific is the largest ocean.'},
+{en:'omnivore',ko:'잡식 동물',phonetic:'/ˈɒmnɪvɔːr/',cat:'자연/과학',example:'Humans are omnivores.'},
+{en:'orbit',ko:'공전하다, 궤도',phonetic:'/ˈɔːrbɪt/',cat:'자연/과학',example:'The moon orbits the earth.'},
+{en:'organism',ko:'유기체',phonetic:'/ˈɔːrɡənɪzəm/',cat:'자연/과학',example:'Living organisms need water.'},
+{en:'oxygen',ko:'산소',phonetic:'/ˈɒksɪdʒən/',cat:'자연/과학',example:'We need oxygen to breathe.'},
+{en:'ozone',ko:'오존',phonetic:'/ˈoʊzoʊn/',cat:'자연/과학',example:'The ozone layer protects us.'},
+{en:'photosynthesis',ko:'광합성',phonetic:'/ˌfoʊtoʊˈsɪnθɪsɪs/',cat:'자연/과학',example:'Photosynthesis requires sunlight.'},
+{en:'planet',ko:'행성',phonetic:'/ˈplænɪt/',cat:'자연/과학',example:'Earth is the third planet from the sun.'},
+{en:'plateau',ko:'고원',phonetic:'/ˈplætoʊ/',cat:'자연/과학',example:'The plateau is high and flat.'},
+{en:'pollinate',ko:'수분하다',phonetic:'/ˈpɒlɪneɪt/',cat:'자연/과학',example:'Bees pollinate flowers.'},
+{en:'pollution',ko:'오염',phonetic:'/pəˈluːʃn/',cat:'자연/과학',example:'Air pollution is a serious problem.'},
+{en:'predator',ko:'포식자',phonetic:'/ˈprɛdətər/',cat:'자연/과학',example:'Wolves are predators.'},
+{en:'prey',ko:'먹이, 사냥감',phonetic:'/preɪ/',cat:'자연/과학',example:'Rabbits are prey for foxes.'},
+{en:'radiation',ko:'방사선',phonetic:'/ˌreɪdiˈeɪʃn/',cat:'자연/과학',example:'Radiation from the sun can be harmful.'},
+{en:'recycle',ko:'재활용하다',phonetic:'/ˌriːˈsaɪkl/',cat:'자연/과학',example:'Recycle paper and plastic.'},
+{en:'renewable',ko:'재생 가능한',phonetic:'/rɪˈnjuːəbl/',cat:'자연/과학',example:'Wind is a renewable energy source.'},
+{en:'reptile',ko:'파충류',phonetic:'/ˈrɛptaɪl/',cat:'자연/과학',example:'Snakes are reptiles.'},
+{en:'satellite',ko:'인공위성, 위성',phonetic:'/ˈsætəlaɪt/',cat:'자연/과학',example:'The satellite orbits the earth.'},
+{en:'sediment',ko:'퇴적물',phonetic:'/ˈsɛdɪmənt/',cat:'자연/과학',example:'Sediment collects at the river bottom.'},
+{en:'seismic',ko:'지진의',phonetic:'/ˈsaɪzmɪk/',cat:'자연/과학',example:'Seismic activity was detected.'},
+{en:'solar',ko:'태양의',phonetic:'/ˈsoʊlər/',cat:'자연/과학',example:'Solar energy comes from the sun.'},
+{en:'species',ko:'종(생물)',phonetic:'/ˈspiːʃiːz/',cat:'자연/과학',example:'Many species are endangered.'},
+{en:'specimen',ko:'표본',phonetic:'/ˈspɛsɪmɪn/',cat:'자연/과학',example:'The scientist examined the specimen.'},
+{en:'tectonic',ko:'지각 변동의',phonetic:'/tɛkˈtɒnɪk/',cat:'자연/과학',example:'Tectonic plates cause earthquakes.'},
+{en:'temperature',ko:'온도',phonetic:'/ˈtɛmprɪtʃər/',cat:'자연/과학',example:'The temperature dropped overnight.'},
+{en:'terrain',ko:'지형',phonetic:'/təˈreɪn/',cat:'자연/과학',example:'The terrain is mountainous.'},
+{en:'thunder',ko:'천둥',phonetic:'/ˈθʌndər/',cat:'자연/과학',example:'Thunder followed the lightning.'},
+{en:'tidal',ko:'조수의',phonetic:'/ˈtaɪdl/',cat:'자연/과학',example:'Tidal waves can be destructive.'},
+{en:'tide',ko:'조수, 조류',phonetic:'/taɪd/',cat:'자연/과학',example:'The tide comes in twice a day.'},
+{en:'toxic',ko:'독성의',phonetic:'/ˈtɒksɪk/',cat:'자연/과학',example:'Toxic chemicals pollute rivers.'},
+{en:'tropical',ko:'열대의',phonetic:'/ˈtrɒpɪkl/',cat:'자연/과학',example:'Tropical forests are full of life.'},
+{en:'turbine',ko:'터빈',phonetic:'/ˈtɜːrbaɪn/',cat:'자연/과학',example:'Wind turbines generate electricity.'},
+{en:'ultraviolet',ko:'자외선의',phonetic:'/ˌʌltrəˈvaɪələt/',cat:'자연/과학',example:'Ultraviolet rays can harm your skin.'},
+{en:'vegetation',ko:'식물, 초목',phonetic:'/ˌvɛdʒɪˈteɪʃn/',cat:'자연/과학',example:'The area has dense vegetation.'},
+{en:'velocity',ko:'속도, 속력',phonetic:'/vɪˈlɒsɪti/',cat:'자연/과학',example:'The velocity of light is constant.'},
+{en:'virus',ko:'바이러스',phonetic:'/ˈvaɪrəs/',cat:'자연/과학',example:'A virus caused the disease.'},
+{en:'waterfall',ko:'폭포',phonetic:'/ˈwɔːtərfɔːl/',cat:'자연/과학',example:'Niagara Falls is a huge waterfall.'},
+{en:'weather',ko:'날씨',phonetic:'/ˈwɛðər/',cat:'자연/과학',example:'Check the weather before going out.'},
+{en:'wildlife',ko:'야생동물',phonetic:'/ˈwaɪldlaɪf/',cat:'자연/과학',example:'Protect wildlife from extinction.'},
+];
+
+// ===== 추가 단어 (17개) =====
+// 일상생활 보충
+,{en:'familiar',ko:'익숙한, 친숙한',phonetic:'/fəˈmɪliər/',cat:'일상생활',example:'This place looks familiar to me.'},
+{en:'formal',ko:'공식적인, 격식 있는',phonetic:'/ˈfɔːrml/',cat:'일상생활',example:'Wear formal clothes to the ceremony.'},
+{en:'fundamental',ko:'근본적인',phonetic:'/ˌfʌndəˈmɛntl/',cat:'일상생활',example:'This is a fundamental rule.'},
+{en:'genuine',ko:'진짜의, 진심 어린',phonetic:'/ˈdʒɛnjuɪn/',cat:'일상생활',example:'Is this a genuine diamond?'},
+{en:'ideal',ko:'이상적인',phonetic:'/aɪˈdiːəl/',cat:'일상생활',example:'This is the ideal solution.'},
+// 학문/지식 보충
+{en:'assumption',ko:'가정, 추정',phonetic:'/əˈsʌmpʃn/',cat:'학문/지식',example:'Do not make an assumption without facts.'},
+{en:'bibliography',ko:'참고 문헌',phonetic:'/ˌbɪbliˈɒɡrəfi/',cat:'학문/지식',example:'List all sources in the bibliography.'},
+{en:'data',ko:'데이터, 자료',phonetic:'/ˈdeɪtə/',cat:'학문/지식',example:'Collect data before analyzing.'},
+{en:'debate',ko:'토론',phonetic:'/dɪˈbeɪt/',cat:'학문/지식',example:'We had a debate on climate change.'},
+// 사회/문화 보충
+{en:'civilization',ko:'문명',phonetic:'/ˌsɪvɪlaɪˈzeɪʃn/',cat:'사회/문화',example:'Ancient civilizations built pyramids.'},
+{en:'colony',ko:'식민지',phonetic:'/ˈkɒləni/',cat:'사회/문화',example:'Korea was once a Japanese colony.'},
+{en:'diplomat',ko:'외교관',phonetic:'/ˈdɪpləmæt/',cat:'사회/문화',example:'The diplomat negotiated a peace deal.'},
+{en:'federal',ko:'연방의',phonetic:'/ˈfɛdərəl/',cat:'사회/문화',example:'The federal government made the law.'},
+// 자연/과학 보충
+{en:'amphibian',ko:'양서류',phonetic:'/æmˈfɪbiən/',cat:'자연/과학',example:'Frogs are amphibians.'},
+{en:'condensation',ko:'응결',phonetic:'/ˌkɒndɛnˈseɪʃn/',cat:'자연/과학',example:'Condensation appears on cold windows.'},
+{en:'metamorphosis',ko:'변태, 변형',phonetic:'/ˌmɛtəˈmɔːrfəsɪs/',cat:'자연/과학',example:'Caterpillars undergo metamorphosis.'},
+{en:'precipitation',ko:'강수',phonetic:'/prɪˌsɪpɪˈteɪʃn/',cat:'자연/과학',example:'Rain and snow are forms of precipitation.'}
+];
+
+const CATS = ['전체','일상생활','감정/성격','학문/지식','사회/문화','자연/과학'];
+let mode = 'flash', currentCat = '전체', filteredWords = [], currentIdx = 0;
+let known = new Set(), quizScore = {c:0,t:0}, quizAnswered = false;
+
+function gw() { return currentCat==='전체' ? WORDS : WORDS.filter(w=>w.cat===currentCat); }
 
 function updateStats() {
-  const ws = gw();
-  const k = ws.filter(w => known.has(WORDS.indexOf(w))).length;
-  document.getElementById('st-total').textContent = ws.length;
-  document.getElementById('st-known').textContent = k;
-  document.getElementById('st-unknown').textContent = ws.length - k;
-  const pct = quizScore.t > 0 ? Math.round(quizScore.c / quizScore.t * 100) : 0;
-  document.getElementById('st-score').textContent = pct + '%';
+  const ws=gw(), k=ws.filter(w=>known.has(WORDS.indexOf(w))).length;
+  document.getElementById('st-total').textContent=ws.length;
+  document.getElementById('st-known').textContent=k;
+  document.getElementById('st-unknown').textContent=ws.length-k;
+  const pct=quizScore.t>0?Math.round(quizScore.c/quizScore.t*100):0;
+  document.getElementById('st-score').textContent=pct+'%';
 }
 
 function buildCats() {
-  document.getElementById('cat-bar').innerHTML = CATS.map(c =>
+  document.getElementById('cat-bar').innerHTML=CATS.map(c=>
     `<button class="cat-btn ${c===currentCat?'active':''}" onclick="selectCat('${c}')">${c}</button>`
   ).join('');
 }
 
-function selectCat(cat) { currentCat = cat; currentIdx = 0; buildCats(); render(); }
+function selectCat(cat) { currentCat=cat; currentIdx=0; buildCats(); render(); }
 
 function switchMode(m) {
-  mode = m; currentIdx = 0; quizAnswered = false;
-  document.querySelectorAll('.tab').forEach((t,i) => t.classList.toggle('active', ['flash','quiz','fill','list'][i]===m));
+  mode=m; currentIdx=0; quizAnswered=false;
+  document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',['flash','quiz','fill','list'][i]===m));
   render();
 }
 
 function render() {
-  filteredWords = gw();
-  const c = document.getElementById('main-content');
-  if (mode==='flash') renderFlash(c);
-  else if (mode==='quiz') renderQuiz(c);
-  else if (mode==='fill') renderFill(c);
+  filteredWords=gw();
+  const c=document.getElementById('main-content');
+  if(mode==='flash') renderFlash(c);
+  else if(mode==='quiz') renderQuiz(c);
+  else if(mode==='fill') renderFill(c);
   else renderList(c);
   updateStats();
 }
 
-/* === FLASH === */
 function renderFlash(c) {
-  if (!filteredWords.length) { c.innerHTML='<p style="text-align:center;color:#999;padding:40px">단어 없음</p>'; return; }
-  const w = filteredWords[currentIdx];
-  const pct = Math.round((currentIdx+1)/filteredWords.length*100);
-  c.innerHTML = `
+  if(!filteredWords.length){c.innerHTML='<p style="text-align:center;color:#999;padding:40px">단어 없음</p>';return;}
+  const w=filteredWords[currentIdx];
+  const pct=Math.round((currentIdx+1)/filteredWords.length*100);
+  c.innerHTML=`
     <div class="progress-bar"><div class="progress-fill" style="width:${pct}%"></div></div>
     <p class="flip-hint">카드를 탭하면 뒤집혀요 👆</p>
     <div class="flashcard-wrap">
@@ -213,7 +695,7 @@ function renderFlash(c) {
         </div>
         <div class="card-face card-back">
           <div class="card-meaning">${w.ko}</div>
-          <div class="card-example">${hi(w.example, w.en)}</div>
+          <div class="card-example">${hi(w.example,w.en)}</div>
         </div>
       </div>
     </div>
@@ -227,22 +709,17 @@ function renderFlash(c) {
       <button class="know-btn know-yes" onclick="setKnown(true)">✅ 알아요!</button>
     </div>`;
 }
-function hi(s, w) { return s.replace(new RegExp('('+w+')','gi'), '<em>$1</em>'); }
-function flipCard() { document.getElementById('fc')?.classList.toggle('flipped'); }
-function move(d) { currentIdx = (currentIdx+d+filteredWords.length)%filteredWords.length; render(); }
-function setKnown(v) {
-  const gi = WORDS.indexOf(filteredWords[currentIdx]);
-  if (v) known.add(gi); else known.delete(gi);
-  move(1);
-}
+function hi(s,w){return s.replace(new RegExp('('+w+')','gi'),'<em>$1</em>');}
+function flipCard(){document.getElementById('fc')?.classList.toggle('flipped');}
+function move(d){currentIdx=(currentIdx+d+filteredWords.length)%filteredWords.length;render();}
+function setKnown(v){const gi=WORDS.indexOf(filteredWords[currentIdx]);if(v)known.add(gi);else known.delete(gi);move(1);}
 
-/* === QUIZ === */
 function renderQuiz(c) {
-  if (!filteredWords.length) { c.innerHTML='<p style="text-align:center;color:#999;padding:40px">단어 없음</p>'; return; }
-  const w = filteredWords[currentIdx];
-  const opts = shuffle([w.ko, ...getWrong(w, 3)]);
-  const pct = Math.round((currentIdx+1)/filteredWords.length*100);
-  c.innerHTML = `
+  if(!filteredWords.length){c.innerHTML='<p style="text-align:center;color:#999;padding:40px">단어 없음</p>';return;}
+  const w=filteredWords[currentIdx];
+  const opts=shuffle([w.ko,...getWrong(w,3)]);
+  const pct=Math.round((currentIdx+1)/filteredWords.length*100);
+  c.innerHTML=`
     <div class="progress-bar"><div class="progress-fill" style="width:${pct}%"></div></div>
     <div class="quiz-question">
       <div class="quiz-q-label">뜻을 고르세요</div>
@@ -250,36 +727,29 @@ function renderQuiz(c) {
       <div class="quiz-q-phonetic">${w.phonetic}</div>
     </div>
     <div class="quiz-options">
-      ${opts.map(o=>`<button class="quiz-opt" onclick="checkQuiz(this,'${o.replace(/'/g,"\\'")}','${w.ko.replace(/'/g,"\\'")}')">${o}</button>`).join('')}
+      ${opts.map(o=>`<button class="quiz-opt" onclick="checkQuiz(this,${JSON.stringify(o)},${JSON.stringify(w.ko)})">${o}</button>`).join('')}
     </div>
     <div class="quiz-feedback" id="qfb"></div>
     <button class="next-btn" id="qnext" onclick="nextQuiz()">다음 문제 →</button>`;
 }
-function checkQuiz(btn, chosen, correct) {
-  if (quizAnswered) return; quizAnswered = true; quizScore.t++;
-  document.querySelectorAll('.quiz-opt').forEach(b => { b.disabled=true; if (b.textContent===correct) b.classList.add('correct'); });
-  const fb = document.getElementById('qfb');
-  if (chosen === correct) {
-    btn.classList.add('correct');
-    fb.textContent = '🎉 정답! 훌륭해요!'; fb.className = 'quiz-feedback show ok';
-    quizScore.c++; known.add(WORDS.indexOf(filteredWords[currentIdx]));
-  } else {
-    btn.classList.add('wrong');
-    fb.textContent = `😅 정답은 "${correct}"예요.`; fb.className = 'quiz-feedback show bad';
-  }
+function checkQuiz(btn,chosen,correct) {
+  if(quizAnswered)return; quizAnswered=true; quizScore.t++;
+  document.querySelectorAll('.quiz-opt').forEach(b=>{b.disabled=true;if(b.textContent===correct)b.classList.add('correct');});
+  const fb=document.getElementById('qfb');
+  if(chosen===correct){btn.classList.add('correct');fb.textContent='🎉 정답! 훌륭해요!';fb.className='quiz-feedback show ok';quizScore.c++;known.add(WORDS.indexOf(filteredWords[currentIdx]));}
+  else{btn.classList.add('wrong');fb.textContent=`😅 정답은 "${correct}"예요.`;fb.className='quiz-feedback show bad';}
   document.getElementById('qnext').classList.add('show'); updateStats();
 }
-function nextQuiz() { quizAnswered=false; currentIdx=(currentIdx+1)%filteredWords.length; render(); }
-function getWrong(w, n) { return shuffle(WORDS.filter(x=>x.ko!==w.ko).map(x=>x.ko)).slice(0,n); }
-function shuffle(a) { return [...a].sort(()=>Math.random()-0.5); }
+function nextQuiz(){quizAnswered=false;currentIdx=(currentIdx+1)%filteredWords.length;render();}
+function getWrong(w,n){return shuffle(WORDS.filter(x=>x.ko!==w.ko).map(x=>x.ko)).slice(0,n);}
+function shuffle(a){return[...a].sort(()=>Math.random()-0.5);}
 
-/* === FILL === */
 function renderFill(c) {
-  if (!filteredWords.length) { c.innerHTML='<p style="text-align:center;color:#999;padding:40px">단어 없음</p>'; return; }
-  const w = filteredWords[currentIdx];
-  const pct = Math.round((currentIdx+1)/filteredWords.length*100);
-  const sHtml = w.example.replace(new RegExp(w.en,'i'), `<span class="fill-blank" id="br"></span>`);
-  c.innerHTML = `
+  if(!filteredWords.length){c.innerHTML='<p style="text-align:center;color:#999;padding:40px">단어 없음</p>';return;}
+  const w=filteredWords[currentIdx];
+  const pct=Math.round((currentIdx+1)/filteredWords.length*100);
+  const sHtml=w.example.replace(new RegExp(w.en,'i'),'<span class="fill-blank" id="br"></span>');
+  c.innerHTML=`
     <div class="progress-bar"><div class="progress-fill" style="width:${pct}%"></div></div>
     <div class="fill-card">
       <div class="fill-meaning">뜻: ${w.ko}</div>
@@ -290,39 +760,29 @@ function renderFill(c) {
         <button class="fill-submit" onclick="checkFill()">확인</button>
       </div>
       <div class="fill-result" id="fr"></div>
-      <button class="fill-next show" id="fn" onclick="nextFill()" style="display:none">다음 단어 →</button>
+      <button class="fill-next" id="fn" style="display:none" onclick="nextFill()">다음 단어 →</button>
     </div>`;
   document.getElementById('fi').focus();
 }
 function checkFill() {
-  const w = filteredWords[currentIdx];
-  const inp = document.getElementById('fi'), res = document.getElementById('fr'), nxt = document.getElementById('fn');
-  if (!inp || inp.disabled) return;
-  const val = inp.value.trim().toLowerCase();
-  inp.disabled = true;
-  const blank = document.getElementById('br');
-  if (val === w.en.toLowerCase()) {
-    inp.classList.add('correct'); if(blank) blank.textContent=w.en;
-    res.textContent='🎉 정답이에요!'; res.className='fill-result show ok';
-    known.add(WORDS.indexOf(w));
-  } else {
-    inp.classList.add('wrong'); if(blank) blank.textContent=w.en;
-    res.textContent=`😅 정답은 "${w.en}"이에요.`; res.className='fill-result show bad';
-  }
+  const w=filteredWords[currentIdx];
+  const inp=document.getElementById('fi'),res=document.getElementById('fr'),nxt=document.getElementById('fn');
+  if(!inp||inp.disabled)return;
+  const val=inp.value.trim().toLowerCase();
+  inp.disabled=true;
+  const blank=document.getElementById('br');
+  if(val===w.en.toLowerCase()){inp.classList.add('correct');if(blank)blank.textContent=w.en;res.textContent='🎉 정답이에요!';res.className='fill-result show ok';known.add(WORDS.indexOf(w));}
+  else{inp.classList.add('wrong');if(blank)blank.textContent=w.en;res.textContent=`😅 정답은 "${w.en}"이에요.`;res.className='fill-result show bad';}
   nxt.style.display='block'; updateStats();
 }
-function nextFill() { currentIdx=(currentIdx+1)%filteredWords.length; render(); }
+function nextFill(){currentIdx=(currentIdx+1)%filteredWords.length;render();}
 
-/* === LIST === */
 function renderList(c) {
-  const ws = filteredWords.length ? filteredWords : gw();
-  c.innerHTML = `
-    <input class="list-search" placeholder="🔍 단어 검색..." oninput="filterList(this.value)" id="ls">
-    <div class="word-list" id="wl">${renderItems(ws)}</div>`;
+  const ws=filteredWords.length?filteredWords:gw();
+  c.innerHTML=`<input class="list-search" placeholder="🔍 단어 검색..." oninput="filterList(this.value)"><div class="word-list" id="wl">${renderItems(ws)}</div>`;
 }
-function renderItems(ws) {
-  return ws.map(w => {
-    const gi = WORDS.indexOf(w), isK = known.has(gi);
+function renderItems(ws){
+  return ws.map(w=>{const gi=WORDS.indexOf(w),isK=known.has(gi);
     return `<div class="word-item ${isK?'known':''}">
       <div class="word-item-left">
         <div class="word-item-en">${w.en} <span class="word-item-ph">${w.phonetic}</span></div>
@@ -333,10 +793,9 @@ function renderItems(ws) {
     </div>`;
   }).join('');
 }
-function filterList(q) {
-  const ws = gw().filter(w => !q || w.en.toLowerCase().includes(q.toLowerCase()) || w.ko.includes(q));
-  const wl = document.getElementById('wl');
-  if (wl) wl.innerHTML = renderItems(ws);
+function filterList(q){
+  const ws=gw().filter(w=>!q||w.en.toLowerCase().includes(q.toLowerCase())||w.ko.includes(q));
+  const wl=document.getElementById('wl');if(wl)wl.innerHTML=renderItems(ws);
 }
 
 buildCats();
