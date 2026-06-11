@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>중학 영단어 마스터 | 고등학생용</title>
+<style>
+  :root {
+    --bg: #f5f4ef;
+    --surface: #ffffff;
+    --surface2: #eeeae0;
+    --text: #1a1a1a;
+    --text2: #555;
+    --text3: #999;
+    --accent: #3d6b52;
+    --accent-light: #e6f2ec;
+    --accent2: #b84c28;
+    --accent2-light: #fbeee9;
+    --border: rgba(0,0,0,0.09);
+    --radius: 16px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', -apple-system, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+
+  .header { background: var(--accent); color: #fff; padding: 18px 20px 14px; text-align: center; }
+  .header h1 { font-size: 20px; font-weight: 700; }
+  .header p { font-size: 12px; opacity: 0.8; margin-top: 3px; }
+
+  .stats { display: flex; background: var(--surface); border-bottom: 1px solid var(--border); }
+  .stat { flex: 1; text-align: center; padding: 10px 4px; border-right: 1px solid var(--border); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 18px; font-weight: 700; color: var(--accent); }
+  .stat-num.red { color: var(--accent2); }
+  .stat-num.dark { color: var(--text); }
+  .stat-label { font-size: 10px; color: var(--text3); margin-top: 1px; }
+
+  .tabs { display: flex; background: var(--surface); border-bottom: 1px solid var(--border); }
+  .tab { flex: 1; padding: 10px 2px; border: none; background: none; font-size: 12px; font-weight: 600; color: var(--text3); cursor: pointer; border-bottom: 3px solid transparent; }
+  .tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+  .category-bar { padding: 10px 16px; background: var(--surface); display: flex; gap: 7px; overflow-x: auto; scrollbar-width: none; border-bottom: 1px solid var(--border); }
+  .category-bar::-webkit-scrollbar { display: none; }
+  .cat-btn { white-space: nowrap; padding: 5px 12px; border-radius: 20px; border: 1.5px solid var(--border); background: var(--surface); font-size: 11px; font-weight: 600; color: var(--text2); cursor: pointer; transition: all 0.15s; }
+  .cat-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+  .content { padding: 16px; max-width: 600px; margin: 0 auto; }
+
+  /* Progress */
+  .progress-bar { height: 3px; background: var(--surface2); border-radius: 2px; margin-bottom: 14px; }
+  .progress-fill { height: 100%; background: var(--accent); border-radius: 2px; transition: width 0.4s; }
+
+  /* Flash card */
+  .flashcard-wrap { perspective: 1000px; height: 220px; margin-bottom: 16px; }
+  .flashcard { width: 100%; height: 100%; position: relative; transform-style: preserve-3d; transition: transform 0.45s; cursor: pointer; }
+  .flashcard.flipped { transform: rotateY(180deg); }
+  .card-face { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; background: var(--surface); border-radius: var(--radius); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; border: 1px solid var(--border); box-shadow: 0 2px 12px rgba(0,0,0,0.07); }
+  .card-back { transform: rotateY(180deg); background: var(--accent-light); }
+  .card-word { font-size: 34px; font-weight: 700; letter-spacing: -1px; }
+  .card-phonetic { font-size: 13px; color: var(--text3); margin-top: 5px; }
+  .card-cat { font-size: 11px; color: var(--text3); margin-top: 8px; background: var(--surface2); padding: 3px 10px; border-radius: 10px; }
+  .card-meaning { font-size: 26px; font-weight: 700; color: var(--accent); }
+  .card-example { font-size: 13px; color: var(--text2); margin-top: 10px; text-align: center; line-height: 1.6; }
+  .card-example em { font-style: normal; font-weight: 700; color: var(--accent); }
+  .flip-hint { font-size: 11px; color: var(--text3); text-align: center; margin-bottom: 10px; }
+
+  .card-nav { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+  .nav-btn { width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid var(--border); background: var(--surface); font-size: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 1px 6px rgba(0,0,0,0.06); transition: all 0.15s; }
+  .nav-btn:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .card-counter { font-size: 13px; color: var(--text2); font-weight: 600; }
+
+  .know-btns { display: flex; gap: 10px; }
+  .know-btn { flex: 1; padding: 13px; border-radius: 12px; border: none; font-size: 14px; font-weight: 700; cursor: pointer; transition: all 0.15s; }
+  .know-yes { background: var(--accent-light); color: var(--accent); }
+  .know-no { background: var(--accent2-light); color: var(--accent2); }
+  .know-yes:hover { background: var(--accent); color: #fff; }
+  .know-no:hover { background: var(--accent2); color: #fff; }
+
+  /* Quiz */
+  .quiz-question { background: var(--surface); border-radius: var(--radius); padding: 24px 20px; text-align: center; box-shadow: 0 2px 12px rgba(0,0,0,0.07); border: 1px solid var(--border); margin-bottom: 16px; }
+  .quiz-q-label { font-size: 11px; color: var(--text3); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+  .quiz-q-word { font-size: 30px; font-weight: 700; }
+  .quiz-q-phonetic { font-size: 12px; color: var(--text3); margin-top: 5px; }
+  .quiz-options { display: flex; flex-direction: column; gap: 9px; margin-bottom: 14px; }
+  .quiz-opt { padding: 14px 18px; border-radius: 12px; border: 1.5px solid var(--border); background: var(--surface); font-size: 15px; font-weight: 600; color: var(--text); cursor: pointer; text-align: left; transition: all 0.15s; }
+  .quiz-opt:hover:not(:disabled) { border-color: var(--accent); background: var(--accent-light); color: var(--accent); }
+  .quiz-opt.correct { background: var(--accent-light); border-color: var(--accent); color: var(--accent); }
+  .quiz-opt.wrong { background: var(--accent2-light); border-color: var(--accent2); color: var(--accent2); }
+  .quiz-feedback { padding: 12px 16px; border-radius: 10px; font-size: 13px; font-weight: 600; text-align: center; margin-bottom: 12px; display: none; }
+  .quiz-feedback.show { display: block; }
+  .quiz-feedback.ok { background: var(--accent-light); color: var(--accent); }
+  .quiz-feedback.bad { background: var(--accent2-light); color: var(--accent2); }
+  .next-btn { width: 100%; padding: 14px; border-radius: 12px; border: none; background: var(--accent); color: #fff; font-size: 15px; font-weight: 700; cursor: pointer; display: none; }
+  .next-btn.show { display: block; }
+
+  /* Fill */
+  .fill-card { background: var(--surface); border-radius: var(--radius); padding: 24px 20px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); border: 1px solid var(--border); margin-bottom: 16px; }
+  .fill-meaning { font-size: 20px; font-weight: 700; margin-bottom: 6px; }
+  .fill-sentence { font-size: 15px; color: var(--text2); line-height: 1.8; margin-bottom: 18px; padding: 12px 14px; background: var(--bg); border-radius: 10px; }
+  .fill-blank { display: inline-block; min-width: 70px; border-bottom: 2px solid var(--accent); color: var(--accent); font-weight: 700; text-align: center; }
+  .fill-input-row { display: flex; gap: 8px; }
+  .fill-input { flex: 1; padding: 13px 14px; border-radius: 12px; border: 1.5px solid var(--border); font-size: 17px; font-weight: 600; outline: none; transition: border-color 0.2s; background: var(--surface); color: var(--text); }
+  .fill-input:focus { border-color: var(--accent); }
+  .fill-input.correct { border-color: var(--accent); background: var(--accent-light); color: var(--accent); }
+  .fill-input.wrong { border-color: var(--accent2); background: var(--accent2-light); color: var(--accent2); }
+  .fill-submit { padding: 13px 18px; border-radius: 12px; border: none; background: var(--accent); color: #fff; font-size: 15px; font-weight: 700; cursor: pointer; }
+  .fill-result { margin-top: 12px; padding: 10px 14px; border-radius: 10px; font-size: 13px; font-weight: 600; display: none; }
+  .fill-result.show { display: block; }
+  .fill-result.ok { background: var(--accent-light); color: var(--accent); }
+  .fill-result.bad { background: var(--accent2-light); color: var(--accent2); }
+  .fill-next { width: 100%; margin-top: 10px; padding: 13px; border-radius: 12px; border: none; background: var(--accent); color: #fff; font-size: 14px; font-weight: 700; cursor: pointer; display: none; }
+  .fill-next.show { display: block; }
+
+  /* Word List */
+  .list-search { width: 100%; padding: 11px 14px; border-radius: 12px; border: 1.5px solid var(--border); font-size: 14px; outline: none; margin-bottom: 14px; background: var(--surface); color: var(--text); }
+  .list-search:focus { border-color: var(--accent); }
+  .word-list { display: flex; flex-direction: column; gap: 6px; }
+  .word-item { background: var(--surface); border-radius: 12px; padding: 12px 14px; display: flex; align-items: center; gap: 12px; border: 1px solid var(--border); }
+  .word-item.known { border-left: 4px solid var(--accent); }
+  .word-item-left { flex: 1; min-width: 0; }
+  .word-item-en { font-size: 16px; font-weight: 700; }
+  .word-item-ph { font-size: 11px; color: var(--text3); }
+  .word-item-ko { font-size: 13px; color: var(--text2); margin-top: 1px; }
+  .word-item-ex { font-size: 11px; color: var(--text3); margin-top: 2px; }
+  .badge { font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 8px; white-space: nowrap; }
+  .badge-known { background: var(--accent-light); color: var(--accent); }
+  .badge-new { background: var(--surface2); color: var(--text3); }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>📚 중학 영단어 마스터</h1>
+  <p>고등학생 필수 어휘 500개 — 플래시카드 · 퀴즈 · 빈칸 채우기</p>
+</div>
+
+<div class="stats">
+  <div class="stat"><div class="stat-num dark" id="st-total">500</div><div class="stat-label">전체</div></div>
+  <div class="stat"><div class="stat-num" id="st-known">0</div><div class="stat-label">알아요 ✓</div></div>
+  <div class="stat"><div class="stat-num red" id="st-unknown">500</div><div class="stat-label">학습 중</div></div>
+  <div class="stat"><div class="stat-num" id="st-score">0%</div><div class="stat-label">퀴즈 점수</div></div>
+</div>
+
+<div class="tabs">
+  <button class="tab active" onclick="switchMode('flash')">🃏 플래시카드</button>
+  <button class="tab" onclick="switchMode('quiz')">✏️ 퀴즈</button>
+  <button class="tab" onclick="switchMode('fill')">🔤 빈칸</button>
+  <button class="tab" onclick="switchMode('list')">📋 목록</button>
+</div>
+
+<div class="category-bar" id="cat-bar"></div>
+<div class="content" id="main-content"></div>
+
+<script src="words.js"></script>
+<script>
+const CATS = ['전체','일상생활','감정/성격','학문/지식','사회/문화','자연/과학'];
+let mode = 'flash';
+let currentCat = '전체';
+let filteredWords = [];
+let currentIdx = 0;
+let known = new Set();
+let quizScore = { c: 0, t: 0 };
+let quizAnswered = false;
+
+function gw() { return currentCat === '전체' ? WORDS : WORDS.filter(w => w.cat === currentCat); }
+
+function updateStats() {
+  const ws = gw();
+  const k = ws.filter(w => known.has(WORDS.indexOf(w))).length;
+  document.getElementById('st-total').textContent = ws.length;
+  document.getElementById('st-known').textContent = k;
+  document.getElementById('st-unknown').textContent = ws.length - k;
+  const pct = quizScore.t > 0 ? Math.round(quizScore.c / quizScore.t * 100) : 0;
+  document.getElementById('st-score').textContent = pct + '%';
+}
+
+function buildCats() {
+  document.getElementById('cat-bar').innerHTML = CATS.map(c =>
+    `<button class="cat-btn ${c===currentCat?'active':''}" onclick="selectCat('${c}')">${c}</button>`
+  ).join('');
+}
+
+function selectCat(cat) { currentCat = cat; currentIdx = 0; buildCats(); render(); }
+
+function switchMode(m) {
+  mode = m; currentIdx = 0; quizAnswered = false;
+  document.querySelectorAll('.tab').forEach((t,i) => t.classList.toggle('active', ['flash','quiz','fill','list'][i]===m));
+  render();
+}
+
+function render() {
+  filteredWords = gw();
+  const c = document.getElementById('main-content');
+  if (mode==='flash') renderFlash(c);
+  else if (mode==='quiz') renderQuiz(c);
+  else if (mode==='fill') renderFill(c);
+  else renderList(c);
+  updateStats();
+}
+
+/* === FLASH === */
+function renderFlash(c) {
+  if (!filteredWords.length) { c.innerHTML='<p style="text-align:center;color:#999;padding:40px">단어 없음</p>'; return; }
+  const w = filteredWords[currentIdx];
+  const pct = Math.round((currentIdx+1)/filteredWords.length*100);
+  c.innerHTML = `
+    <div class="progress-bar"><div class="progress-fill" style="width:${pct}%"></div></div>
+    <p class="flip-hint">카드를 탭하면 뒤집혀요 👆</p>
+    <div class="flashcard-wrap">
+      <div class="flashcard" id="fc" onclick="flipCard()">
+        <div class="card-face">
+          <div class="card-word">${w.en}</div>
+          <div class="card-phonetic">${w.phonetic}</div>
+          <div class="card-cat">${w.cat}</div>
+        </div>
+        <div class="card-face card-back">
+          <div class="card-meaning">${w.ko}</div>
+          <div class="card-example">${hi(w.example, w.en)}</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-nav">
+      <button class="nav-btn" onclick="move(-1)">←</button>
+      <span class="card-counter">${currentIdx+1} / ${filteredWords.length}</span>
+      <button class="nav-btn" onclick="move(1)">→</button>
+    </div>
+    <div class="know-btns">
+      <button class="know-btn know-no" onclick="setKnown(false)">😅 아직 몰라요</button>
+      <button class="know-btn know-yes" onclick="setKnown(true)">✅ 알아요!</button>
+    </div>`;
+}
+function hi(s, w) { return s.replace(new RegExp('('+w+')','gi'), '<em>$1</em>'); }
+function flipCard() { document.getElementById('fc')?.classList.toggle('flipped'); }
+function move(d) { currentIdx = (currentIdx+d+filteredWords.length)%filteredWords.length; render(); }
+function setKnown(v) {
+  const gi = WORDS.indexOf(filteredWords[currentIdx]);
+  if (v) known.add(gi); else known.delete(gi);
+  move(1);
+}
+
+/* === QUIZ === */
+function renderQuiz(c) {
+  if (!filteredWords.length) { c.innerHTML='<p style="text-align:center;color:#999;padding:40px">단어 없음</p>'; return; }
+  const w = filteredWords[currentIdx];
+  const opts = shuffle([w.ko, ...getWrong(w, 3)]);
+  const pct = Math.round((currentIdx+1)/filteredWords.length*100);
+  c.innerHTML = `
+    <div class="progress-bar"><div class="progress-fill" style="width:${pct}%"></div></div>
+    <div class="quiz-question">
+      <div class="quiz-q-label">뜻을 고르세요</div>
+      <div class="quiz-q-word">${w.en}</div>
+      <div class="quiz-q-phonetic">${w.phonetic}</div>
+    </div>
+    <div class="quiz-options">
+      ${opts.map(o=>`<button class="quiz-opt" onclick="checkQuiz(this,'${o.replace(/'/g,"\\'")}','${w.ko.replace(/'/g,"\\'")}')">${o}</button>`).join('')}
+    </div>
+    <div class="quiz-feedback" id="qfb"></div>
+    <button class="next-btn" id="qnext" onclick="nextQuiz()">다음 문제 →</button>`;
+}
+function checkQuiz(btn, chosen, correct) {
+  if (quizAnswered) return; quizAnswered = true; quizScore.t++;
+  document.querySelectorAll('.quiz-opt').forEach(b => { b.disabled=true; if (b.textContent===correct) b.classList.add('correct'); });
+  const fb = document.getElementById('qfb');
+  if (chosen === correct) {
+    btn.classList.add('correct');
+    fb.textContent = '🎉 정답! 훌륭해요!'; fb.className = 'quiz-feedback show ok';
+    quizScore.c++; known.add(WORDS.indexOf(filteredWords[currentIdx]));
+  } else {
+    btn.classList.add('wrong');
+    fb.textContent = `😅 정답은 "${correct}"예요.`; fb.className = 'quiz-feedback show bad';
+  }
+  document.getElementById('qnext').classList.add('show'); updateStats();
+}
+function nextQuiz() { quizAnswered=false; currentIdx=(currentIdx+1)%filteredWords.length; render(); }
+function getWrong(w, n) { return shuffle(WORDS.filter(x=>x.ko!==w.ko).map(x=>x.ko)).slice(0,n); }
+function shuffle(a) { return [...a].sort(()=>Math.random()-0.5); }
+
+/* === FILL === */
+function renderFill(c) {
+  if (!filteredWords.length) { c.innerHTML='<p style="text-align:center;color:#999;padding:40px">단어 없음</p>'; return; }
+  const w = filteredWords[currentIdx];
+  const pct = Math.round((currentIdx+1)/filteredWords.length*100);
+  const sHtml = w.example.replace(new RegExp(w.en,'i'), `<span class="fill-blank" id="br"></span>`);
+  c.innerHTML = `
+    <div class="progress-bar"><div class="progress-fill" style="width:${pct}%"></div></div>
+    <div class="fill-card">
+      <div class="fill-meaning">뜻: ${w.ko}</div>
+      <div style="font-size:12px;color:var(--text3);margin-bottom:12px">${w.phonetic} · ${w.cat}</div>
+      <div class="fill-sentence">${sHtml}</div>
+      <div class="fill-input-row">
+        <input class="fill-input" id="fi" type="text" placeholder="영단어 입력" autocomplete="off" autocorrect="off" spellcheck="false" onkeydown="if(event.key==='Enter')checkFill()">
+        <button class="fill-submit" onclick="checkFill()">확인</button>
+      </div>
+      <div class="fill-result" id="fr"></div>
+      <button class="fill-next show" id="fn" onclick="nextFill()" style="display:none">다음 단어 →</button>
+    </div>`;
+  document.getElementById('fi').focus();
+}
+function checkFill() {
+  const w = filteredWords[currentIdx];
+  const inp = document.getElementById('fi'), res = document.getElementById('fr'), nxt = document.getElementById('fn');
+  if (!inp || inp.disabled) return;
+  const val = inp.value.trim().toLowerCase();
+  inp.disabled = true;
+  const blank = document.getElementById('br');
+  if (val === w.en.toLowerCase()) {
+    inp.classList.add('correct'); if(blank) blank.textContent=w.en;
+    res.textContent='🎉 정답이에요!'; res.className='fill-result show ok';
+    known.add(WORDS.indexOf(w));
+  } else {
+    inp.classList.add('wrong'); if(blank) blank.textContent=w.en;
+    res.textContent=`😅 정답은 "${w.en}"이에요.`; res.className='fill-result show bad';
+  }
+  nxt.style.display='block'; updateStats();
+}
+function nextFill() { currentIdx=(currentIdx+1)%filteredWords.length; render(); }
+
+/* === LIST === */
+function renderList(c) {
+  const ws = filteredWords.length ? filteredWords : gw();
+  c.innerHTML = `
+    <input class="list-search" placeholder="🔍 단어 검색..." oninput="filterList(this.value)" id="ls">
+    <div class="word-list" id="wl">${renderItems(ws)}</div>`;
+}
+function renderItems(ws) {
+  return ws.map(w => {
+    const gi = WORDS.indexOf(w), isK = known.has(gi);
+    return `<div class="word-item ${isK?'known':''}">
+      <div class="word-item-left">
+        <div class="word-item-en">${w.en} <span class="word-item-ph">${w.phonetic}</span></div>
+        <div class="word-item-ko">${w.ko}</div>
+        <div class="word-item-ex">${w.example}</div>
+      </div>
+      <span class="badge ${isK?'badge-known':'badge-new'}">${isK?'✓ 완료':'미완료'}</span>
+    </div>`;
+  }).join('');
+}
+function filterList(q) {
+  const ws = gw().filter(w => !q || w.en.toLowerCase().includes(q.toLowerCase()) || w.ko.includes(q));
+  const wl = document.getElementById('wl');
+  if (wl) wl.innerHTML = renderItems(ws);
+}
+
+buildCats();
+render();
+</script>
+</body>
+</html>
